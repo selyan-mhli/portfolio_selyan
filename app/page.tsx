@@ -2,12 +2,26 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import HeroScene from "@/components/HeroScene";
-import MobileScrollView from "@/components/MobileScrollView";
+import dynamic from "next/dynamic";
+
+const HeroScene = dynamic(() => import("@/components/HeroScene"), {
+  ssr: false,
+});
+const MobileScrollView = dynamic(() => import("@/components/MobileScrollView"), {
+  ssr: false,
+});
 
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 500px)");
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -24,18 +38,10 @@ export default function HomePage() {
     };
   }, []);
 
-  useEffect(() => {
-    const mql = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, []);
-
   return (
     <main className="h-screen w-full overflow-hidden" role="main">
       <AnimatePresence>
-        {!loaded && (
+        {(!loaded || isMobile === null) && (
           <motion.div
             key="loader"
             className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#09090f]"
@@ -51,7 +57,7 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
-      {isMobile ? <MobileScrollView /> : <HeroScene />}
+      {isMobile !== null && (isMobile ? <MobileScrollView /> : <HeroScene />)}
     </main>
   );
 }

@@ -489,16 +489,27 @@ export default function MobileScrollView() {
 
   return (
     <div className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
-      {/* Background — same as desktop (without avatar) */}
+      {/* Background — same as desktop */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black" aria-hidden="true">
         {/* Glow orbs */}
         <div className="absolute left-1/2 top-[38%] h-[50vh] w-[50vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze/20 blur-[120px]" />
         <div className="absolute left-1/2 top-[42%] h-[30vh] w-[30vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-copper/25 blur-[80px]" />
         <div className="absolute left-1/2 top-[36%] h-[18vh] w-[18vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-olive/20 blur-[60px]" />
+        {/* Avatar — same as desktop */}
+        <div className="absolute inset-0 z-[1]">
+          <Image
+            src="/scene/selyan_avatar.png"
+            alt="Selyan Mouhali"
+            fill
+            priority
+            sizes="100vw"
+            className="object-contain object-center scale-[1.05] translate-y-[4%]"
+          />
+        </div>
         {/* CrossGrid */}
         <MobileCrossGrid />
         {/* Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(0,0,0,0)_24%,rgba(0,0,0,0.42)_68%,rgba(0,0,0,0.85)_100%)]" />
+        <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_44%,rgba(0,0,0,0)_24%,rgba(0,0,0,0.42)_68%,rgba(0,0,0,0.85)_100%)]" />
       </div>
 
       {/* ── Title — centered with typewriter animation ── */}
@@ -518,44 +529,34 @@ export default function MobileScrollView() {
           </h1>
         </div>
 
-      {/* ── Floating icons ── */}
-      <AnimatePresence>
-        {!activeIconId && MOBILE_ICONS.map((icon) => (
-          <motion.button
-            key={icon.id}
-            type="button"
-            onClick={() => setActiveIconId(icon.id)}
-            aria-label={getIconLabel(icon.id, lang)}
-            className="absolute z-20 flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2 group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze"
-            style={{ left: icon.left, top: icon.top }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -8, 0, 6, 0],
-              x: [0, 4, 0, -4, 0],
-            }}
-            transition={{
-              opacity: { duration: 0.4, delay: 0.3 + icon.floatDelay * 0.3 },
-              scale: { duration: 0.4, delay: 0.3 + icon.floatDelay * 0.3, type: "spring", stiffness: 200, damping: 18 },
-              y: { repeat: Infinity, duration: 4 + icon.floatDelay, ease: "easeInOut", delay: icon.floatDelay },
-              x: { repeat: Infinity, duration: 5 + icon.floatDelay, ease: "easeInOut", delay: icon.floatDelay + 0.5 },
-            }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Image
-              src={icon.src}
-              alt={getIconLabel(icon.id, lang)}
-              width={72}
-              height={72}
-              className="h-[4.5rem] w-[4.5rem] object-contain drop-shadow-[0_4px_12px_rgba(168,85,247,0.2)]"
-            />
-            <span className="text-[9px] tracking-wide text-white/40 text-center max-w-[70px] leading-tight">
-              {getIconLabel(icon.id, lang)}
-            </span>
-          </motion.button>
-        ))}
-      </AnimatePresence>
+      {/* ── Floating icons (CSS animations for GPU performance) ── */}
+      {!activeIconId && MOBILE_ICONS.map((icon) => (
+        <button
+          key={icon.id}
+          type="button"
+          onClick={() => setActiveIconId(icon.id)}
+          aria-label={getIconLabel(icon.id, lang)}
+          className="absolute z-20 flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2 mobile-float-enter mobile-float-icon group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze active:scale-90 transition-transform"
+          style={{
+            left: icon.left,
+            top: icon.top,
+            "--float-duration": `${4 + icon.floatDelay}s`,
+            "--float-delay": `${icon.floatDelay}s`,
+            animationDelay: `${0.3 + icon.floatDelay * 0.3}s, ${icon.floatDelay}s`,
+          } as React.CSSProperties}
+        >
+          <Image
+            src={icon.src}
+            alt={getIconLabel(icon.id, lang)}
+            width={72}
+            height={72}
+            className="h-[4.5rem] w-[4.5rem] object-contain drop-shadow-[0_4px_12px_rgba(168,85,247,0.2)]"
+          />
+          <span className="text-[9px] tracking-wide text-white/40 text-center max-w-[70px] leading-tight">
+            {getIconLabel(icon.id, lang)}
+          </span>
+        </button>
+      ))}
 
       {/* ── Bottom bar ── */}
       <AnimatePresence>
