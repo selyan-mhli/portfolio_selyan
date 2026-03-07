@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 
 const HeroScene = dynamic(() => import("@/components/HeroScene"), {
@@ -40,23 +39,18 @@ export default function HomePage() {
 
   return (
     <main className="h-screen w-full overflow-hidden" role="main">
-      <AnimatePresence>
-        {(!loaded || isMobile === null) && (
-          <motion.div
-            key="loader"
-            className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#09090f]"
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-            role="status"
-            aria-label="Loading"
-          >
-            <div className="relative mb-6 h-10 w-10">
-              <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-[#a855f7]" />
-            </div>
-            <p className="text-sm tracking-[0.3em] text-[#a855f7]/60" aria-live="polite">LOADING</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {(!loaded || isMobile === null) && (
+        <div
+          className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#09090f] transition-opacity duration-[600ms] ease-in-out ${loaded && isMobile !== null ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          role="status"
+          aria-label="Loading"
+        >
+          <div className="relative mb-6 h-10 w-10">
+            <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-[#a855f7]" />
+          </div>
+          <p className="text-sm tracking-[0.3em] text-[#a855f7]/60" aria-live="polite">LOADING</p>
+        </div>
+      )}
       {isMobile !== null && (isMobile ? <MobileScrollView /> : <HeroScene />)}
     </main>
   );

@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { t, getIconLabel, type Lang } from "@/lib/i18n";
 
 /* ── Language flags ── */
@@ -488,6 +488,7 @@ export default function MobileScrollView() {
   const activeIcon = MOBILE_ICONS.find((i) => i.id === activeIconId) ?? null;
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
       {/* Background — same as desktop */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black" aria-hidden="true">
@@ -516,14 +517,14 @@ export default function MobileScrollView() {
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
         <h1 className="font-[var(--font-display)] text-[2rem] font-semibold tracking-[0.10em] text-bronze/80 text-center leading-tight drop-shadow-[0_2px_16px_rgba(183,138,89,0.3)]">
           {t("portfolioTitle", lang).split("").map((char, i) => (
-              <motion.span
+              <m.span
                 key={`${lang}-${i}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.04, delay: 0.4 + i * 0.06 }}
               >
                 {char}
-              </motion.span>
+              </m.span>
             ))}
             <span className="inline-block w-[2px] h-[1.1em] bg-bronze/60 align-middle ml-0.5 animate-blink" />
           </h1>
@@ -561,7 +562,7 @@ export default function MobileScrollView() {
       {/* ── Bottom bar ── */}
       <AnimatePresence>
         {!activeIconId && (
-          <motion.div
+          <m.div
             className="absolute bottom-0 left-0 right-0 z-30 flex items-center justify-between px-3 pb-4 pt-8 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -580,7 +581,7 @@ export default function MobileScrollView() {
             </button>
             <AnimatePresence>
               {langOpen && (
-                <motion.div
+                <m.div
                   className="absolute bottom-10 left-0 flex flex-col gap-1 rounded-xl border border-white/10 bg-obsidian/95 backdrop-blur-md p-1.5 shadow-xl"
                   initial={{ opacity: 0, y: 6, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -597,7 +598,7 @@ export default function MobileScrollView() {
                       {FLAGS[l]}
                     </button>
                   ))}
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
           </div>
@@ -636,14 +637,14 @@ export default function MobileScrollView() {
               Contact
             </button>
           </div>
-        </motion.div>
+        </m.div>
         )}
       </AnimatePresence>
 
       {/* ── Popup modal — centered like tablet ── */}
       <AnimatePresence>
         {activeSection && activeIcon && (
-          <motion.div
+          <m.div
             key={`popup-${activeIcon.id}`}
             className="fixed inset-0 z-[60] flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
@@ -655,14 +656,14 @@ export default function MobileScrollView() {
             aria-label={activeIcon ? getIconLabel(activeIcon.id, lang) : undefined}
           >
             {/* Backdrop */}
-            <motion.div
+            <m.div
               className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={() => setActiveIconId(null)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             />
-            <motion.div
+            <m.div
               className="relative z-10 flex max-h-[82vh] w-full max-w-md flex-col"
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -695,15 +696,15 @@ export default function MobileScrollView() {
                   {activeSection.content}
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
 
       {/* Contact modal */}
       <AnimatePresence>
         {showContact && (
-          <motion.div
+          <m.div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -714,7 +715,7 @@ export default function MobileScrollView() {
             aria-modal="true"
             aria-label="Contact"
           >
-            <motion.div
+            <m.div
               className="relative mx-4 w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-obsidian p-8 shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -738,27 +739,35 @@ export default function MobileScrollView() {
               </p>
               <div className="mt-5 space-y-2">
                 <a
-                  href="mailto:selyan.mouhali@utt.fr"
+                  href="mailto:selyan.mouhali@gmail.com"
                   className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-xs text-sand transition-colors hover:border-bronze/30"
                 >
-                  selyan.mouhali@utt.fr
+                  selyan.mouhali@gmail.com
                 </a>
                 <a
-                  href="tel:+33766250418"
+                  href="tel:+33650596632"
                   className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-xs text-sand transition-colors hover:border-bronze/30"
                 >
-                  +33 7 66 25 04 18
+                  +33 6 50 59 66 32
                 </a>
               </div>
-            </motion.div>
-          </motion.div>
+              {/* LinkedIn QR Code */}
+              <div className="mt-5 flex flex-col items-center gap-2">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-bronze/70">LinkedIn</p>
+                <div className="rounded-xl border border-white/10 bg-white p-2.5">
+                  <Image src="/scene/linkedin-qr.svg" alt="QR code LinkedIn Selyan Mouhali" width={120} height={120} className="h-[120px] w-[120px]" />
+                </div>
+                <p className="text-[9px] text-white/30">{t("scanToConnect", lang)}</p>
+              </div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
 
       {/* Project preview modal */}
       <AnimatePresence>
         {previewUrl && (
-          <motion.div
+          <m.div
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -766,7 +775,7 @@ export default function MobileScrollView() {
             transition={{ duration: 0.25 }}
             onClick={() => setPreviewUrl(null)}
           >
-            <motion.div
+            <m.div
               className="relative mx-2 h-[90vh] w-[96vw] overflow-hidden rounded-2xl border border-white/10 bg-obsidian shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -804,10 +813,11 @@ export default function MobileScrollView() {
                 className="h-[calc(100%-2.5rem)] w-full border-0 bg-white"
                 sandbox="allow-scripts allow-same-origin allow-popups"
               />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
+    </LazyMotion>
   );
 }

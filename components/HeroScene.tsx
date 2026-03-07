@@ -925,6 +925,14 @@ export default function HeroScene() {
                   Selyan Mouhali
                 </a>
               </div>
+              {/* LinkedIn QR Code */}
+              <div className="mt-6 flex flex-col items-center gap-2">
+                <p className="text-xs uppercase tracking-[0.2em] text-bronze/70">LinkedIn</p>
+                <div className="rounded-xl border border-white/10 bg-white p-3">
+                  <Image src="/scene/linkedin-qr.svg" alt="QR code LinkedIn Selyan Mouhali" width={140} height={140} className="h-[140px] w-[140px]" />
+                </div>
+                <p className="text-[10px] text-white/30">{t("scanToConnect", lang)}</p>
+              </div>
             </motion.div>
           </motion.div>
         )}

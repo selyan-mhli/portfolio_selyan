@@ -7,6 +7,7 @@ const s: Record<string, Record<Lang, string>> = {
   openToWork:       { fr: "Ouvert aux opportunités", en: "Open to Opportunities", es: "Abierto a oportunidades", ko: "기회를 환영합니다" },
   getInTouch:       { fr: "Me contacter", en: "Get in touch", es: "Contáctame", ko: "연락하기" },
   contactDesc:      { fr: "N'hésitez pas à me contacter pour une collaboration, une opportunité de stage ou simplement pour échanger !", en: "Feel free to reach out for collaboration, internship opportunities or just to connect!", es: "¡No dudes en contactarme para una colaboración, oportunidades de prácticas o simplemente para conectar!", ko: "협업, 인턴십 기회, 또는 간단히 연결하고 싶으시면 편하게 연락해주세요!" },
+  scanToConnect:    { fr: "Scannez pour vous connecter", en: "Scan to connect", es: "Escanea para conectar", ko: "스캔하여 연결하기" },
   comingSoonFor:    { fr: "Contenu à venir pour", en: "Content coming soon for", es: "Contenido próximo para", ko: "곧 콘텐츠가 추가됩니다:" },
   scrollDown:       { fr: "Scrollez pour explorer ↓", en: "Scroll to explore ↓", es: "Desplázate para explorar ↓", ko: "스크롤하여 탐색하기 ↓" },
 

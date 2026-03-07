@@ -4,7 +4,10 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"]
   },
   poweredByHeader: false,
-  compress: true
+  compress: true,
+  experimental: {
+    optimizePackageImports: ["framer-motion"]
+  }
 };
 
 export default nextConfig;
