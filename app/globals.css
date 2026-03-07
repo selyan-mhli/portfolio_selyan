@@ -93,6 +93,21 @@ h4 {
   }
 }
 
+/* ── Focus visible (accessibility) ── */
+:focus-visible {
+  outline: 2px solid var(--bronze);
+  outline-offset: 2px;
+}
+
+/* ── Blink cursor animation ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
 /* ── Mobile scroll view ── */
 .mobile-scroll-container {
   -webkit-overflow-scrolling: touch;

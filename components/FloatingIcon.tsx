@@ -38,7 +38,8 @@ export default function FloatingIcon({
   return (
     <motion.button
       type="button"
-      className={`group absolute cursor-pointer border-0 bg-transparent p-0 ${className}`}
+      aria-label={label}
+      className={`group absolute cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze ${className}`}
       whileHover={disabled ? {} : { scale: 1.18 }}
       whileTap={disabled ? {} : { scale: 1.05 }}
       transition={{
@@ -49,9 +50,10 @@ export default function FloatingIcon({
       }}
       style={{ x: translateX, y: translateY, willChange: "transform" }}
       onClick={disabled ? undefined : onClick}
+      tabIndex={disabled ? -1 : 0}
     >
       <div className="relative w-full">
-        <div className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.28)_0%,rgba(168,85,247,0)_70%)] opacity-50 blur-xl transition-opacity duration-300 group-hover:opacity-90" />
+        <div className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.28)_0%,rgba(168,85,247,0)_70%)] opacity-50 blur-xl transition-opacity duration-300 group-hover:opacity-90" aria-hidden="true" />
         <Image
           src={src}
           alt={alt}
