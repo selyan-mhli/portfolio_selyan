@@ -17,18 +17,18 @@ const bodyFont = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://selyanmouhali.com"),
+  metadataBase: new URL("https://selyanmouhali.fr"),
   title: "Selyan Mouhali — Portfolio",
   description:
     "Portfolio of Selyan Mouhali — Engineering Student at the University of Technology of Troyes. Web projects, tech skills & more.",
   alternates: {
-    canonical: "https://selyanmouhali.com"
+    canonical: "https://selyanmouhali.fr"
   },
   openGraph: {
     title: "Selyan Mouhali — Portfolio",
     description:
       "Portfolio of Selyan Mouhali — Engineering Student at the University of Technology of Troyes. Web projects, tech skills & more.",
-    url: "https://selyanmouhali.com",
+    url: "https://selyanmouhali.fr",
     siteName: "Selyan Mouhali",
     locale: "en_US",
     type: "website"
@@ -66,7 +66,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Selyan Mouhali",
-              url: "https://selyanmouhali.com",
+              url: "https://selyanmouhali.fr",
               jobTitle: "Engineering Student",
               affiliation: {
                 "@type": "EducationalOrganization",

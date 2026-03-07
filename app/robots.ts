@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/"
       }
     ],
-    sitemap: "https://selyanmouhali.com/sitemap.xml"
+    sitemap: "https://selyanmouhali.fr/sitemap.xml"
   };
 }
