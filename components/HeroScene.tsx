@@ -301,8 +301,9 @@ function getSectionContent(onPreview: (url: string) => void, lang: Lang): Record
             { emoji: "⚽", title: t("passion_football", lang), desc: t("passion_football_d", lang) },
             { emoji: "🏎️", title: t("passion_motorsport", lang), desc: t("passion_motorsport_d", lang) },
             { emoji: "✈️", title: t("passion_travel", lang), desc: t("passion_travel_d", lang) },
-            { emoji: "🍳", title: t("passion_cooking", lang), desc: t("passion_cooking_d", lang) },
-            { emoji: "📚", title: t("passion_reading", lang), desc: t("passion_reading_d", lang) },
+            { emoji: "💹", title: t("passion_economy", lang), desc: t("passion_economy_d", lang) },
+            { emoji: "🤖", title: t("passion_ai", lang), desc: t("passion_ai_d", lang) },
+            { emoji: "💪", title: t("passion_gym", lang), desc: t("passion_gym_d", lang) },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-4">
               <span className="text-2xl">{item.emoji}</span>

@@ -456,8 +456,9 @@ function buildSections(
             { emoji: "⚽", title: t("passion_football", lang), desc: t("passion_football_d", lang) },
             { emoji: "🏎️", title: t("passion_motorsport", lang), desc: t("passion_motorsport_d", lang) },
             { emoji: "✈️", title: t("passion_travel", lang), desc: t("passion_travel_d", lang) },
-            { emoji: "🍳", title: t("passion_cooking", lang), desc: t("passion_cooking_d", lang) },
-            { emoji: "📚", title: t("passion_reading", lang), desc: t("passion_reading_d", lang) },
+            { emoji: "💹", title: t("passion_economy", lang), desc: t("passion_economy_d", lang) },
+            { emoji: "🤖", title: t("passion_ai", lang), desc: t("passion_ai_d", lang) },
+            { emoji: "💪", title: t("passion_gym", lang), desc: t("passion_gym_d", lang) },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-3">
               <span className="text-xl">{item.emoji}</span>
@@ -496,17 +497,6 @@ export default function MobileScrollView() {
         <div className="absolute left-1/2 top-[38%] h-[40vh] w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze/15 blur-[80px]" />
         <div className="absolute left-1/2 top-[42%] h-[25vh] w-[25vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-copper/20 blur-[60px]" />
         <div className="absolute left-1/2 top-[36%] h-[15vh] w-[15vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-olive/15 blur-[40px]" />
-        {/* Avatar — same as desktop */}
-        <div className="absolute inset-0 z-[1]">
-          <Image
-            src="/scene/selyan_avatar.png"
-            alt="Selyan Mouhali"
-            fill
-            priority
-            sizes="(max-width: 500px) 100vw, 80vw"
-            className="object-contain object-center scale-[1.05] translate-y-[4%]"
-          />
-        </div>
         {/* CrossGrid */}
         <MobileCrossGrid />
         {/* Vignette */}
