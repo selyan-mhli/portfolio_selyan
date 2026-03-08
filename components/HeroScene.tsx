@@ -132,6 +132,26 @@ function getSectionContent(onPreview: (url: string) => void, lang: Lang): Record
       <div className="space-y-6">
         {[
           {
+            company: "Néréides",
+            logo: "/scene/logo-nereides.svg",
+            role: t("exp_nereides_role", lang),
+            period: t("exp_nereides_period", lang),
+            bullets: [
+              t("exp_nereides_b1", lang),
+              t("exp_nereides_b2", lang),
+            ]
+          },
+          {
+            company: "Ici Store",
+            logo: "/scene/logo-icistore.svg",
+            role: t("exp_icistore_role", lang),
+            period: t("exp_icistore_period", lang),
+            bullets: [
+              t("exp_icistore_b1", lang),
+              t("exp_icistore_b2", lang),
+            ]
+          },
+          {
             company: "Little Bagel",
             logo: "/scene/logo-littlebagel.webp",
             role: t("exp_littlebagel_role", lang),
@@ -342,9 +362,9 @@ function getSectionContent(onPreview: (url: string) => void, lang: Lang): Record
         {[
           { label: t("cert_karate", lang), issuer: "", link: "", logo: "/logos/karate.svg" },
           { label: t("cert_inrs", lang), issuer: t("cert_inrs_detail", lang), link: "", logo: "/logos/inrs.png" },
-          { label: t("cert_lvmh", lang), issuer: "", link: "", logo: "/logos/lvmh.svg" },
+          { label: t("cert_lvmh", lang), issuer: "", link: "", logo: "/logos/lvmh-inside.svg" },
           { label: t("cert_pse1", lang), issuer: "", link: "", logo: "/logos/croix-rouge.svg" },
-          { label: t("cert_linguaskill", lang), issuer: "", link: "", logo: "/logos/cambridge.png" },
+          { label: t("cert_linguaskill", lang), issuer: "", link: "", logo: "/logos/cambridge.svg" },
           { label: t("cert_siele", lang), issuer: "", link: "", logo: "/logos/siele.png" },
         ].map((c) => {
           const inner = (

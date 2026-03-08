@@ -33,6 +33,16 @@ const s: Record<string, Record<Lang, string>> = {
   about_projects_combine: { fr: "", en: "", es: "", ko: "" },
 
   /* ── Experience ── */
+  exp_nereides_role:      { fr: "Responsable Partenariat", en: "Partnership Manager", es: "Responsable de Alianzas", ko: "파트너십 매니저" },
+  exp_nereides_period:    { fr: "Oct. 2025 – Aujourd'hui · Troyes", en: "Oct 2025 – Present · Troyes", es: "Oct. 2025 – Actualidad · Troyes", ko: "2025년 10월 – 현재 · 트루아" },
+  exp_nereides_b1:        { fr: "Gestion et développement du réseau de partenaires.", en: "Managed and expanded the partner network.", es: "Gestión y desarrollo de la red de socios.", ko: "파트너 네트워크를 관리하고 확장했습니다." },
+  exp_nereides_b2:        { fr: "Mise en place d'outils de suivi et optimisation des processus de communication interne.", en: "Set up monitoring tools and improved internal communication processes.", es: "Implementación de herramientas de seguimiento y optimización de procesos de comunicación interna.", ko: "추적 도구를 구축하고 내부 커뮤니케이션 프로세스를 최적화했습니다." },
+
+  exp_icistore_role:      { fr: "Opérateur polyvalent en atelier", en: "Multi-skilled Workshop Operator", es: "Operador polivalente de taller", ko: "다기능 작업장 오퍼레이터" },
+  exp_icistore_period:    { fr: "Août 2025 · Monteux", en: "Aug 2025 · Monteux", es: "Ago. 2025 · Monteux", ko: "2025년 8월 · 몽퇴" },
+  exp_icistore_b1:        { fr: "Application stricte des protocoles de fabrication et des normes de sécurité.", en: "Strictly applied manufacturing protocols and safety standards.", es: "Aplicación estricta de protocolos de fabricación y normas de seguridad.", ko: "제조 프로토콜과 안전 기준을 엄격히 적용했습니다." },
+  exp_icistore_b2:        { fr: "Participation aux opérations de production et de logistique en atelier.", en: "Contributed to production and workshop logistics operations.", es: "Participación en operaciones de producción y logística de taller.", ko: "작업장 생산 및 물류 운영에 참여했습니다." },
+
   exp_littlebagel_role:   { fr: "Équipier polyvalent", en: "Team Member", es: "Miembro de equipo", ko: "팀원" },
   exp_littlebagel_period: { fr: "Été 2023 & 2024 · Avignon", en: "Summer 2023 & 2024 · Avignon", es: "Verano 2023 y 2024 · Avignon", ko: "2023·2024 여름 · 아비뇽" },
   exp_littlebagel_b1:     { fr: "Accueil et service des clients.", en: "Welcoming and assisting customers.", es: "Atención y servicio al cliente.", ko: "고객 응대 및 서비스." },
