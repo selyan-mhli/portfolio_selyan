@@ -530,23 +530,8 @@ function MobileMenu({
 
             <div className="border-t border-white/[0.06] pt-3 space-y-3">
               {/* Language switcher */}
-              <div className="mx-auto w-full max-w-[360px] rounded-[28px] border border-bronze/60 bg-[#120a25]/85 px-2.5 py-2 shadow-[0_0_24px_rgba(76,29,149,0.35)]">
-                <div className="flex items-center justify-between gap-2">
-                {LANG_ORDER.map((l) => (
-                  <button
-                    key={l}
-                    type="button"
-                    onClick={() => setLang(l)}
-                    className={`flex h-12 w-12 items-center justify-center rounded-full border text-lg transition-colors ${
-                      l === lang
-                        ? "border-[#a78bfa] bg-[#6d4db6]/45 shadow-[0_0_14px_rgba(167,139,250,0.45)]"
-                        : "border-[#6f5ab2]/70 bg-transparent hover:bg-white/[0.04]"
-                    }`}
-                  >
-                    {FLAGS[l]}
-                  </button>
-                ))}
-                </div>
+              <div className="flex justify-center">
+                <LangSwitcher lang={lang} setLang={setLang} />
               </div>
 
               {/* Social links */}
