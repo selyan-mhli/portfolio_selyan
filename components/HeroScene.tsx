@@ -340,16 +340,18 @@ function getSectionContent(onPreview: (url: string) => void, lang: Lang): Record
     dots: (
       <div className="space-y-3">
         {[
-          { label: t("cert_karate", lang), issuer: "", link: "", emoji: "🥋" },
-          { label: t("cert_inrs", lang), issuer: t("cert_inrs_detail", lang), link: "", emoji: "🛡️" },
-          { label: t("cert_lvmh", lang), issuer: "", link: "", emoji: "🏢" },
-          { label: t("cert_pse1", lang), issuer: "", link: "", emoji: "🚑" },
-          { label: t("cert_linguaskill", lang), issuer: "", link: "", emoji: "🇬🇧" },
-          { label: t("cert_siele", lang), issuer: "", link: "", emoji: "🇪🇸" },
+          { label: t("cert_karate", lang), issuer: "", link: "", logo: "/logos/karate.svg" },
+          { label: t("cert_inrs", lang), issuer: t("cert_inrs_detail", lang), link: "", logo: "/logos/inrs.png" },
+          { label: t("cert_lvmh", lang), issuer: "", link: "", logo: "/logos/lvmh.svg" },
+          { label: t("cert_pse1", lang), issuer: "", link: "", logo: "/logos/croix-rouge.svg" },
+          { label: t("cert_linguaskill", lang), issuer: "", link: "", logo: "/logos/cambridge.png" },
+          { label: t("cert_siele", lang), issuer: "", link: "", logo: "/logos/siele.png" },
         ].map((c) => {
           const inner = (
             <div className={`flex items-center gap-4 rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 transition-all duration-200 ${c.link ? "hover:border-bronze/40 hover:bg-bronze/[0.06] cursor-pointer" : ""}`}>
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-xl">{c.emoji}</span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white/[0.04]">
+                <Image src={c.logo} alt={c.label} width={44} height={44} className="object-contain max-h-11 max-w-11" />
+              </span>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-sand truncate">{c.label}</p>
                 {c.issuer && <p className="text-xs text-white/40 mt-0.5 truncate">{c.issuer}</p>}

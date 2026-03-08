@@ -251,16 +251,18 @@ function buildSections(
       content: (
         <div className="space-y-2">
           {[
-            { label: t("cert_karate", lang), issuer: "", link: "", emoji: "🥋" },
-            { label: t("cert_inrs", lang), issuer: t("cert_inrs_detail", lang), link: "", emoji: "🛡️" },
-            { label: t("cert_lvmh", lang), issuer: "", link: "", emoji: "🏢" },
-            { label: t("cert_pse1", lang), issuer: "", link: "", emoji: "🚑" },
-            { label: t("cert_linguaskill", lang), issuer: "", link: "", emoji: "🇬🇧" },
-            { label: t("cert_siele", lang), issuer: "", link: "", emoji: "🇪🇸" },
+            { label: t("cert_karate", lang), issuer: "", link: "", logo: "/logos/karate.svg" },
+            { label: t("cert_inrs", lang), issuer: t("cert_inrs_detail", lang), link: "", logo: "/logos/inrs.png" },
+            { label: t("cert_lvmh", lang), issuer: "", link: "", logo: "/logos/lvmh.svg" },
+            { label: t("cert_pse1", lang), issuer: "", link: "", logo: "/logos/croix-rouge.svg" },
+            { label: t("cert_linguaskill", lang), issuer: "", link: "", logo: "/logos/cambridge.png" },
+            { label: t("cert_siele", lang), issuer: "", link: "", logo: "/logos/siele.png" },
           ].map((c) => {
             const inner = (
               <div className={`flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2.5 transition-all duration-200 ${c.link ? "active:bg-bronze/[0.08]" : ""}`}>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] text-lg">{c.emoji}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.04]">
+                  <Image src={c.logo} alt={c.label} width={36} height={36} className="object-contain max-h-9 max-w-9" />
+                </span>
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-sand truncate">{c.label}</p>
                   {c.issuer && <p className="text-[10px] text-white/40 mt-0.5 truncate">{c.issuer}</p>}
