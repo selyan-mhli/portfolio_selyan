@@ -654,7 +654,7 @@ export default function HeroScene() {
             fill
             priority
             fetchPriority="high"
-            className="hidden object-contain object-center scale-[1.08] translate-y-[2%] md:block lg:hidden"
+            className="hidden object-contain object-center scale-[1.14] translate-y-[2%] md:block lg:hidden"
             sizes="(max-width: 1024px) 80vw, 50vw"
           />
           <Image
