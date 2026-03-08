@@ -661,7 +661,7 @@ export default function MobileScrollView() {
               onClick={() => setShowContact(true)}
               className="rounded-full border border-bronze/30 bg-bronze/10 px-3 py-1.5 text-[9px] font-medium tracking-wider text-bronze"
             >
-              Freelance
+              Contact me
             </button>
           </div>
         </m.div>

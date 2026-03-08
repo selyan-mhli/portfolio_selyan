@@ -643,7 +643,7 @@ export default function MobileScrollView() {
               onClick={() => setShowContact(true)}
               className="rounded-full border border-bronze/30 bg-bronze/10 px-4 py-2 text-[10px] font-medium tracking-wider text-bronze"
             >
-              Stage 2027
+              Contact
             </button>
           </div>
         </m.div>
