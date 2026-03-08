@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence, useTransform } from "framer-motion";
 import FloatingIcon from "@/components/FloatingIcon";
 import { useMouseParallax } from "@/hooks/useMouseParallax";
+import { useDialogA11y } from "@/hooks/useDialogA11y";
 import { t, getIconLabel, type Lang } from "@/lib/i18n";
 
 type IconSide = "left" | "right" | "center";
@@ -439,7 +440,7 @@ function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label="Change language"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
       >
         {FLAGS[lang]}
       </button>
@@ -461,7 +462,7 @@ function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ delay: i * 0.05 }}
                 onClick={() => { setLang(l); setOpen(false); }}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 hover:border-bronze/40"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 hover:border-bronze/40"
               >
                 {FLAGS[l]}
               </motion.button>
@@ -497,7 +498,7 @@ function MobileMenu({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-sand/70 transition-colors hover:bg-white/10"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-sand/70 transition-colors hover:bg-white/10"
         aria-label="Menu"
       >
         {open ? "✕" : "☰"}
@@ -535,7 +536,7 @@ function MobileMenu({
                     key={l}
                     type="button"
                     onClick={() => setLang(l)}
-                    className={`flex h-8 w-8 items-center justify-center rounded-full border text-sm transition-colors ${
+                    className={`flex h-11 w-11 items-center justify-center rounded-full border text-sm transition-colors ${
                       l === lang ? "border-bronze/50 bg-bronze/15" : "border-white/10 bg-white/5"
                     }`}
                   >
@@ -607,6 +608,13 @@ export default function HeroScene() {
     setActiveIcon(null);
     setPanelSide(null);
   }, []);
+  const closeContactModal = useCallback(() => setShowContact(false), []);
+  const closePreviewModal = useCallback(() => setPreviewUrl(null), []);
+
+  const sideDialogRef = useDialogA11y(Boolean(activeIcon && panelSide && isWide), handleClose);
+  const centeredDialogRef = useDialogA11y(Boolean(activeIcon && !isWide), handleClose);
+  const contactDialogRef = useDialogA11y(showContact, closeContactModal);
+  const previewDialogRef = useDialogA11y(Boolean(previewUrl), closePreviewModal);
 
   const avatarX = useTransform(x, (v) => v * 12);
   const avatarY = useTransform(y, (v) => v * 12);
@@ -717,6 +725,8 @@ export default function HeroScene() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: panelSide === "left" ? "-110%" : "110%", opacity: 0 }}
             transition={springTransition}
+            ref={sideDialogRef}
+            tabIndex={-1}
           >
             <div className="glass-panel relative flex h-full w-full flex-col overflow-hidden rounded-2xl p-8 lg:p-10 shadow-ambient border border-white/[0.06]">
               <button
@@ -771,6 +781,8 @@ export default function HeroScene() {
               exit={{ opacity: 0 }}
             />
             <motion.div
+              ref={centeredDialogRef}
+              tabIndex={-1}
               className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col"
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -910,12 +922,14 @@ export default function HeroScene() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={() => setShowContact(false)}
+            onClick={closeContactModal}
             role="dialog"
             aria-modal="true"
             aria-label="Contact"
           >
             <motion.div
+              ref={contactDialogRef}
+              tabIndex={-1}
               className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-obsidian p-8 shadow-2xl md:p-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -925,9 +939,9 @@ export default function HeroScene() {
             >
               <button
                 type="button"
-                onClick={() => setShowContact(false)}
+                onClick={closeContactModal}
                 aria-label="Close contact"
-                className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+                className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
               >
                 ✕
               </button>
@@ -969,9 +983,11 @@ export default function HeroScene() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={() => setPreviewUrl(null)}
+            onClick={closePreviewModal}
           >
             <motion.div
+              ref={previewDialogRef}
+              tabIndex={-1}
               className="relative h-[90vh] w-[95vw] max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-obsidian shadow-2xl md:h-[80vh] md:w-[85vw]"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -990,7 +1006,7 @@ export default function HeroScene() {
                   <a href={previewUrl} target="_blank" rel="noopener noreferrer" className="rounded-md border border-white/10 bg-white/5 px-3 py-1 text-[10px] text-sand/70 transition-colors hover:bg-white/10">
                     {t("proj_visit", lang)}
                   </a>
-                  <button type="button" onClick={() => setPreviewUrl(null)} className="flex h-7 w-7 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-sand">✕</button>
+                  <button type="button" onClick={closePreviewModal} className="flex h-11 w-11 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-sand">✕</button>
                 </div>
               </div>
               <iframe

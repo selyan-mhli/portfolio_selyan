@@ -4,9 +4,9 @@ const s: Record<string, Record<Lang, string>> = {
   /* ── UI chrome ── */
   portfolioTitle:   { fr: "Portfolio de Selyan", en: "Selyan's Portfolio", es: "Portafolio de Selyan", ko: "셀리안의 포트폴리오" },
   clickToExplore:   { fr: "Cliquez sur une icône pour explorer", en: "Click an icon to explore", es: "Haz clic en un icono para explorar", ko: "아이콘을 클릭하여 탐색하세요" },
-  openToWork:       { fr: "Open to work - freelance", en: "Open to work - freelance", es: "Open to work - freelance", ko: "Open to work - freelance" },
-  getInTouch:       { fr: "Freelance", en: "Freelance", es: "Freelance", ko: "Freelance" },
-  contactDesc:      { fr: "N'hésitez pas à me contacter pour une collaboration, une opportunité de stage ou simplement pour échanger !", en: "Feel free to reach out for collaboration, internship opportunities or just to connect!", es: "¡No dudes en contactarme para una colaboración, oportunidades de prácticas o simplemente para conectar!", ko: "협업, 인턴십 기회, 또는 간단히 연결하고 싶으시면 편하게 연락해주세요!" },
+  openToWork:       { fr: "Disponible pour stage ingénieur", en: "Available for engineering internship", es: "Disponible para prácticas de ingeniería", ko: "공학 인턴십 가능" },
+  getInTouch:       { fr: "Me contacter", en: "Contact me", es: "Contactarme", ko: "연락하기" },
+  contactDesc:      { fr: "N'hésitez pas à me contacter pour un stage ingénieur, une mission web ou simplement pour échanger.", en: "Feel free to reach out for an engineering internship, a web mission or simply to connect.", es: "No dudes en contactarme para unas prácticas de ingeniería, una misión web o simplemente para conectar.", ko: "공학 인턴십, 웹 프로젝트 또는 간단한 네트워킹을 위해 편하게 연락해주세요." },
   scanToConnect:    { fr: "Scannez pour vous connecter", en: "Scan to connect", es: "Escanea para conectar", ko: "스캔하여 연결하기" },
   comingSoonFor:    { fr: "Contenu à venir pour", en: "Content coming soon for", es: "Contenido próximo para", ko: "곧 콘텐츠가 추가됩니다:" },
   scrollDown:       { fr: "Scrollez pour explorer ↓", en: "Scroll to explore ↓", es: "Desplázate para explorar ↓", ko: "스크롤하여 탐색하기 ↓" },
@@ -123,8 +123,8 @@ const s: Record<string, Record<Lang, string>> = {
   intern_keyword:     { fr: "stage & summer programme", en: "internship & summer programme", es: "prácticas & programa de verano", ko: "인턴십 & 여름 프로그램" },
   intern_stage_title: { fr: "Stage ingénieur — Septembre 2027", en: "Engineering Internship — September 2027", es: "Prácticas de ingeniería — Septiembre 2027", ko: "공학 인턴십 — 2027년 9월" },
   intern_stage_desc:  { fr: "À la recherche d'un stage de 4 à 6 mois en ingénierie, développement ou gestion de projet technique.", en: "Looking for a 4-6 month internship in engineering, development or technical project management.", es: "En busca de prácticas de 4 a 6 meses en ingeniería, desarrollo o gestión de proyectos técnicos.", ko: "공학, 개발 또는 기술 프로젝트 관리 분야 4-6개월 인턴십을 찾고 있습니다." },
-  intern_summer_title:{ fr: "Summer Programme — Été 2026 / 2027", en: "Summer Programme — Summer 2026 / 2027", es: "Programa de Verano — Verano 2026 / 2027", ko: "여름 프로그램 — 2026/2027 여름" },
-  intern_summer_desc: { fr: "Intéressé par des programmes d'été en entreprise, en France ou à l'international, pour découvrir de nouveaux environnements professionnels.", en: "Interested in corporate summer programmes, in France or abroad, to discover new professional environments.", es: "Interesado en programas de verano corporativos, en Francia o en el extranjero, para descubrir nuevos entornos profesionales.", ko: "프랑스 또는 해외 기업 여름 프로그램에 관심이 있습니다." },
+  intern_summer_title:{ fr: "Summer Programme — Été 2027", en: "Summer Programme — Summer 2027", es: "Programa de Verano — Verano 2027", ko: "여름 프로그램 — 2027년 여름" },
+  intern_summer_desc: { fr: "Intéressé par un programme d'été en entreprise (France ou international) pour renforcer mon expérience terrain avant le stage long.", en: "Interested in a corporate summer programme (France or abroad) to strengthen field experience before the long internship.", es: "Interesado en un programa de verano en empresa (Francia o internacional) para reforzar la experiencia antes de las prácticas largas.", ko: "장기 인턴십 전 현장 경험 강화를 위해 기업 여름 프로그램(프랑스/해외)에 관심이 있습니다." },
   intern_open:        { fr: "Ouvert à toute proposition — n'hésitez pas à me contacter !", en: "Open to any opportunity — feel free to reach out!", es: "Abierto a cualquier propuesta — ¡no dudes en contactarme!", ko: "모든 기회에 열려 있습니다 — 편하게 연락주세요!" },
 
   /* ── Certifications ── */

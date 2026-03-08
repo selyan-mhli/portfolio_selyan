@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import TrackedLink from "@/components/TrackedLink";
 import { projects } from "@/lib/projects";
+const BLUR_DATA_URL =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 export const metadata: Metadata = {
   title: "Projets | Selyan Mouhali",
@@ -29,6 +31,8 @@ export default function ProjectsPage() {
                   src={project.heroImage}
                   alt={project.title}
                   fill
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />

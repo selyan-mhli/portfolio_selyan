@@ -22,10 +22,12 @@ body {
   min-height: 100%;
   background: var(--obsidian);
   color: var(--sand);
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body), "Inter", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
   background-image:
     radial-gradient(
       circle at 15% 0%,
@@ -46,6 +48,10 @@ h3,
 h4 {
   font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
   letter-spacing: 0.015em;
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 ::selection {

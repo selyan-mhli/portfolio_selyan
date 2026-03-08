@@ -1,24 +1,89 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
-import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
+import { LazyMotion, domAnimation, m, AnimatePresence, type MotionValue, useTransform } from "framer-motion";
 import { t, getIconLabel, type Lang } from "@/lib/i18n";
+import { useMouseParallax } from "@/hooks/useMouseParallax";
 
 /* ── Language flags ── */
 const FLAGS: Record<Lang, string> = { fr: "🇫🇷", en: "🇬🇧", es: "🇪🇸", ko: "🇰🇷" };
 const LANG_ORDER: Lang[] = ["en", "fr", "es", "ko"];
 
-const MOBILE_ICONS = [
-  { id: "polyhedron", src: "/scene/rose-apropos.png", sectionId: "about", left: "22%", top: "10%", floatDelay: 0 },
-  { id: "text-card", src: "/scene/rose-formation.png", sectionId: "education", left: "72%", top: "8%", floatDelay: 0.5 },
-  { id: "phone", src: "/scene/rose-experience.png", sectionId: "experience", left: "14%", top: "30%", floatDelay: 1.2 },
-  { id: "dots", src: "/scene/rose-certifications.png", sectionId: "certifications", left: "76%", top: "32%", floatDelay: 0.8 },
-  { id: "toggle-stack", src: "/scene/rose-tech.png", sectionId: "tech-stack", left: "12%", top: "60%", floatDelay: 1.5 },
-  { id: "cubes", src: "/scene/rose-projets.png", sectionId: "projects", left: "78%", top: "58%", floatDelay: 0.3 },
-  { id: "ai", src: "/scene/rose-stage.png", sectionId: "ai", left: "18%", top: "78%", floatDelay: 1.8 },
-  { id: "palette", src: "/scene/rose-passions.png", sectionId: "passions", left: "72%", top: "76%", floatDelay: 1.0 },
+type MobileIcon = {
+  id: string;
+  src: string;
+  sectionId: string;
+  left: string;
+  top: string;
+  floatDelay: number;
+  depth: number;
+};
+
+const MOBILE_ICONS: MobileIcon[] = [
+  { id: "polyhedron", src: "/scene/rose-apropos.png", sectionId: "about", left: "22%", top: "10%", floatDelay: 0, depth: 18 },
+  { id: "text-card", src: "/scene/rose-formation.png", sectionId: "education", left: "72%", top: "8%", floatDelay: 0.5, depth: 16 },
+  { id: "phone", src: "/scene/rose-experience.png", sectionId: "experience", left: "14%", top: "30%", floatDelay: 1.2, depth: 22 },
+  { id: "dots", src: "/scene/rose-certifications.png", sectionId: "certifications", left: "76%", top: "32%", floatDelay: 0.8, depth: 14 },
+  { id: "toggle-stack", src: "/scene/rose-tech.png", sectionId: "tech-stack", left: "12%", top: "60%", floatDelay: 1.5, depth: 20 },
+  { id: "cubes", src: "/scene/rose-projets.png", sectionId: "projects", left: "78%", top: "58%", floatDelay: 0.3, depth: 17 },
+  { id: "ai", src: "/scene/rose-stage.png", sectionId: "ai", left: "18%", top: "78%", floatDelay: 1.8, depth: 23 },
+  { id: "palette", src: "/scene/rose-passions.png", sectionId: "passions", left: "72%", top: "76%", floatDelay: 1.0, depth: 19 },
 ];
+
+function MobileFloatingIcon({
+  icon,
+  lang,
+  mouseX,
+  mouseY,
+  onSelect,
+}: {
+  icon: MobileIcon;
+  lang: Lang;
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+  onSelect: (id: string) => void;
+}) {
+  const label = getIconLabel(icon.id, lang);
+  const translateX = useTransform(mouseX, (v) => v * icon.depth);
+  const translateY = useTransform(mouseY, (v) => v * icon.depth);
+
+  return (
+    <m.div
+      className="absolute z-20 -translate-x-1/2 -translate-y-1/2"
+      style={{ left: icon.left, top: icon.top, x: translateX, y: translateY }}
+      initial={{ opacity: 0, scale: 0.84 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.35, delay: 0.12 + icon.floatDelay * 0.22 }}
+    >
+      <m.button
+        type="button"
+        onClick={() => onSelect(icon.id)}
+        aria-label={label}
+        className="group flex flex-col items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze"
+        whileTap={{ scale: 0.9 }}
+        animate={{ x: [0, 3, 0, -3, 0], y: [0, -8, 0, 6, 0] }}
+        transition={{
+          duration: 5 + icon.floatDelay,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: icon.floatDelay
+        }}
+      >
+        <Image
+          src={icon.src}
+          alt={label}
+          width={72}
+          height={72}
+          className="h-[4.5rem] w-[4.5rem] object-contain drop-shadow-[0_6px_14px_rgba(168,85,247,0.28)]"
+        />
+        <span className="max-w-[70px] text-center text-[9px] leading-tight tracking-wide text-white/40">
+          {label}
+        </span>
+      </m.button>
+    </m.div>
+  );
+}
 
 /* ── Section definition ── */
 type SectionDef = {
@@ -472,11 +537,13 @@ function buildSections(
 
 /* ── Main MobileScrollView — popup-based (like tablet) ── */
 export default function MobileScrollView() {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const [lang, setLang] = useState<Lang>("en");
   const [showContact, setShowContact] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
   const [activeIconId, setActiveIconId] = useState<string | null>(null);
+  const { x, y } = useMouseParallax(sectionRef, { stiffness: 95, damping: 24, mass: 0.9 });
 
   const sections = buildSections(lang, setPreviewUrl);
   const activeSection = sections.find((s) => s.iconId === activeIconId) ?? null;
@@ -484,7 +551,7 @@ export default function MobileScrollView() {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
+    <div ref={sectionRef} className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
       {/* Background — smartphone without avatar */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black" aria-hidden="true">
         <Image
@@ -507,33 +574,16 @@ export default function MobileScrollView() {
         </h1>
       </div>
 
-      {/* ── Floating icons (CSS animations for GPU performance) ── */}
+      {/* ── Floating icons — motion + parallax (desktop-like) ── */}
       {!activeIconId && MOBILE_ICONS.map((icon) => (
-        <button
+        <MobileFloatingIcon
           key={icon.id}
-          type="button"
-          onClick={() => setActiveIconId(icon.id)}
-          aria-label={getIconLabel(icon.id, lang)}
-          className="absolute z-20 flex flex-col items-center gap-1.5 -translate-x-1/2 -translate-y-1/2 mobile-float-enter mobile-float-icon group focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze active:scale-90 transition-transform"
-          style={{
-            left: icon.left,
-            top: icon.top,
-            "--float-duration": `${4 + icon.floatDelay}s`,
-            "--float-delay": `${icon.floatDelay}s`,
-            animationDelay: `${0.3 + icon.floatDelay * 0.3}s, ${icon.floatDelay}s`,
-          } as React.CSSProperties}
-        >
-          <Image
-            src={icon.src}
-            alt={getIconLabel(icon.id, lang)}
-            width={72}
-            height={72}
-            className="h-[4.5rem] w-[4.5rem] object-contain drop-shadow-[0_4px_12px_rgba(168,85,247,0.2)]"
-          />
-          <span className="text-[9px] tracking-wide text-white/40 text-center max-w-[70px] leading-tight">
-            {getIconLabel(icon.id, lang)}
-          </span>
-        </button>
+          icon={icon}
+          lang={lang}
+          mouseX={x}
+          mouseY={y}
+          onSelect={setActiveIconId}
+        />
       ))}
 
       {/* ── Bottom bar ── */}

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import TrackedLink from "@/components/TrackedLink";
 import { getProjectBySlug, projects } from "@/lib/projects";
+const BLUR_DATA_URL =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -86,6 +88,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               src={project.heroImage}
               alt={project.title}
               fill
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 40vw"
             />

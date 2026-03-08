@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import Image from "next/image";
 import { LazyMotion, domAnimation, m, AnimatePresence } from "framer-motion";
 import { t, getIconLabel, type Lang } from "@/lib/i18n";
+import { useDialogA11y } from "@/hooks/useDialogA11y";
 
 /* ── Language flags ── */
 const FLAGS: Record<Lang, string> = { fr: "🇫🇷", en: "🇬🇧", es: "🇪🇸", ko: "🇰🇷" };
@@ -508,6 +509,12 @@ export default function MobileScrollView() {
   const sections = buildSections(lang, setPreviewUrl);
   const activeSection = sections.find((s) => s.iconId === activeIconId) ?? null;
   const activeIcon = MOBILE_ICONS.find((i) => i.id === activeIconId) ?? null;
+  const closeSectionModal = useCallback(() => setActiveIconId(null), []);
+  const closeContactModal = useCallback(() => setShowContact(false), []);
+  const closePreviewModal = useCallback(() => setPreviewUrl(null), []);
+  const sectionDialogRef = useDialogA11y(Boolean(activeSection), closeSectionModal);
+  const contactDialogRef = useDialogA11y(showContact, closeContactModal);
+  const previewDialogRef = useDialogA11y(Boolean(previewUrl), closePreviewModal);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -577,7 +584,7 @@ export default function MobileScrollView() {
               type="button"
               onClick={() => setLangOpen((p) => !p)}
               aria-label="Change language"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-bronze/40 bg-bronze/15 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-bronze/40 bg-bronze/15 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
             >
               {FLAGS[lang]}
             </button>
@@ -595,7 +602,7 @@ export default function MobileScrollView() {
                       key={l}
                       type="button"
                       onClick={() => { setLang(l); setLangOpen(false); }}
-                      className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm transition-all hover:bg-white/10"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm transition-all hover:bg-white/10"
                     >
                       {FLAGS[l]}
                     </button>
@@ -614,7 +621,7 @@ export default function MobileScrollView() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
             >
               <svg className="h-3.5 w-3.5 text-sand/70" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
@@ -625,7 +632,7 @@ export default function MobileScrollView() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
             >
               <svg className="h-3.5 w-3.5 text-sand/70" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -634,9 +641,9 @@ export default function MobileScrollView() {
             <button
               type="button"
               onClick={() => setShowContact(true)}
-              className="rounded-full border border-bronze/30 bg-bronze/10 px-3 py-1.5 text-[9px] font-medium tracking-wider text-bronze"
+              className="rounded-full border border-bronze/30 bg-bronze/10 px-4 py-2 text-[10px] font-medium tracking-wider text-bronze"
             >
-              Freelance
+              Stage 2027
             </button>
           </div>
         </m.div>
@@ -666,6 +673,8 @@ export default function MobileScrollView() {
               exit={{ opacity: 0 }}
             />
             <m.div
+              ref={sectionDialogRef}
+              tabIndex={-1}
               className="relative z-10 flex max-h-[82vh] w-full max-w-md flex-col"
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -712,12 +721,14 @@ export default function MobileScrollView() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={() => setShowContact(false)}
+            onClick={closeContactModal}
             role="dialog"
             aria-modal="true"
             aria-label="Contact"
           >
             <m.div
+              ref={contactDialogRef}
+              tabIndex={-1}
               className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-obsidian p-8 shadow-2xl md:p-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -727,7 +738,7 @@ export default function MobileScrollView() {
             >
               <button
                 type="button"
-                onClick={() => setShowContact(false)}
+                onClick={closeContactModal}
                 aria-label="Close contact"
                 className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-white/40 transition-colors hover:bg-white/10 hover:text-sand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
               >
@@ -771,9 +782,11 @@ export default function MobileScrollView() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={() => setPreviewUrl(null)}
+            onClick={closePreviewModal}
           >
             <m.div
+              ref={previewDialogRef}
+              tabIndex={-1}
               className="relative mx-2 h-[90vh] w-[96vw] overflow-hidden rounded-2xl border border-white/10 bg-obsidian shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -798,7 +811,7 @@ export default function MobileScrollView() {
                   </a>
                   <button
                     type="button"
-                    onClick={() => setPreviewUrl(null)}
+                    onClick={closePreviewModal}
                     className="flex h-6 w-6 items-center justify-center rounded-full text-white/40 hover:bg-white/10 hover:text-sand"
                   >
                     ✕

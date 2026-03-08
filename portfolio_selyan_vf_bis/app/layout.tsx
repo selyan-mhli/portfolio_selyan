@@ -6,55 +6,58 @@ const displayFont = Space_Grotesk({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-display",
-  display: "swap"
+  display: "swap",
 });
 
 const bodyFont = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://selyanmouhali.fr"),
-  title: "Selyan Mouhali — Portfolio",
+  title: {
+    default: "Selyan Mouhali | Portfolio ingénierie web",
+    template: "%s | Selyan Mouhali",
+  },
   description:
-    "Portfolio of Selyan Mouhali — Engineering Student at the University of Technology of Troyes. Web projects, tech skills & more.",
+    "Étudiant ingénieur UTT. Portfolio orienté recrutement: projets détaillés, résultats, stack technique et contact direct.",
   alternates: {
-    canonical: "https://selyanmouhali.fr"
+    canonical: "https://selyanmouhali.fr",
   },
   openGraph: {
-    title: "Selyan Mouhali — Portfolio",
+    title: "Selyan Mouhali | Portfolio ingénierie web",
     description:
-      "Portfolio of Selyan Mouhali — Engineering Student at the University of Technology of Troyes. Web projects, tech skills & more.",
+      "Portfolio orienté recrutement: projets détaillés, performances web, accessibilité et contact direct.",
     url: "https://selyanmouhali.fr",
     siteName: "Selyan Mouhali",
-    locale: "en_US",
-    type: "website"
+    locale: "fr_FR",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Selyan Mouhali — Portfolio",
+    title: "Selyan Mouhali | Portfolio ingénierie web",
     description:
-      "Portfolio of Selyan Mouhali — Engineering Student at the University of Technology of Troyes."
+      "Projets détaillés et contact direct pour stage ingénieur (disponible septembre 2027).",
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
   },
   other: {
-    "theme-color": "#09090f"
-  }
+    "theme-color": "#09090f",
+  },
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#09090f" />
@@ -67,16 +70,22 @@ export default function RootLayout({
               "@type": "Person",
               name: "Selyan Mouhali",
               url: "https://selyanmouhali.fr",
-              jobTitle: "Engineering Student",
-              affiliation: {
+              jobTitle: "Étudiant ingénieur - Développement web",
+              alumniOf: {
                 "@type": "EducationalOrganization",
-                name: "University of Technology of Troyes"
+                name: "University of Technology of Troyes",
               },
+              knowsAbout: [
+                "Next.js",
+                "TypeScript",
+                "Web Performance",
+                "UX Accessibility",
+              ],
               sameAs: [
                 "https://github.com/selyan-mhli",
-                "https://www.linkedin.com/in/selyanmouhali/"
-              ]
-            })
+                "https://www.linkedin.com/in/selyanmouhali/",
+              ],
+            }),
           }}
         />
       </head>
