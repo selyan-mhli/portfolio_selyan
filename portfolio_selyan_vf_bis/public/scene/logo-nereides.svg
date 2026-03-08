@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
-  <title id="title">Nereides</title>
-  <desc id="desc">Simple logo mark for Nereides.</desc>
-  <rect width="160" height="160" rx="12" fill="#2f8d67" />
-  <circle cx="80" cy="58" r="7.5" fill="#ffffff" />
-  <path d="M80 30c-15 0-28 13-28 28 0 12 7 23 18 27" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
-  <path d="M88 30c15 0 28 13 28 28 0 11-6 20-15 25" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".45" />
-  <text x="80" y="138" fill="#ffffff" font-size="31" font-family="Arial, Helvetica, sans-serif" font-weight="700" text-anchor="middle">Nereides</text>
-</svg>
