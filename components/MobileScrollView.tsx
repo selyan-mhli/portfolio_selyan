@@ -9,33 +9,6 @@ import { t, getIconLabel, type Lang } from "@/lib/i18n";
 const FLAGS: Record<Lang, string> = { fr: "🇫🇷", en: "🇬🇧", es: "🇪🇸", ko: "🇰🇷" };
 const LANG_ORDER: Lang[] = ["en", "fr", "es", "ko"];
 
-/* ── CrossGrid (same as desktop) ── */
-function MobileCrossGrid() {
-  const crosses: React.ReactNode[] = [];
-  const cols = 8;
-  const rows = 4;
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      const left = 15 + c * 10;
-      const top = r * 22;
-      crosses.push(
-        <span
-          key={`${r}-${c}`}
-          className="absolute text-white/[0.06]"
-          style={{ left: `${left}%`, top: `${top}%`, fontSize: "1.1rem" }}
-        >
-          ✦
-        </span>
-      );
-    }
-  }
-  return (
-    <div className="absolute bottom-0 left-0 right-0 h-[30%] overflow-hidden">
-      <div className="relative h-full w-full">{crosses}</div>
-    </div>
-  );
-}
-
 const MOBILE_ICONS = [
   { id: "polyhedron", src: "/scene/rose-apropos.png", sectionId: "about", left: "22%", top: "10%", floatDelay: 0 },
   { id: "text-card", src: "/scene/rose-formation.png", sectionId: "education", left: "72%", top: "8%", floatDelay: 0.5 },
@@ -512,16 +485,18 @@ export default function MobileScrollView() {
   return (
     <LazyMotion features={domAnimation}>
     <div className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
-      {/* Background — same as desktop */}
+      {/* Background — smartphone without avatar */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black" aria-hidden="true">
-        {/* Glow orbs — lighter blur on mobile for GPU perf */}
-        <div className="absolute left-1/2 top-[38%] h-[40vh] w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze/15 blur-[80px]" />
-        <div className="absolute left-1/2 top-[42%] h-[25vh] w-[25vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-copper/20 blur-[60px]" />
-        <div className="absolute left-1/2 top-[36%] h-[15vh] w-[15vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-olive/15 blur-[40px]" />
-        {/* CrossGrid */}
-        <MobileCrossGrid />
-        {/* Vignette */}
-        <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_44%,rgba(0,0,0,0)_24%,rgba(0,0,0,0.42)_68%,rgba(0,0,0,0.85)_100%)]" />
+        <Image
+          src="/scene/0632eb4c-b335-45ce-9b5b-2d5954c0b996.png"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* ── Title — CSS fade-in (no JS animation cost) ── */}

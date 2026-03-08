@@ -640,12 +640,12 @@ export default function HeroScene() {
           style={{ x: avatarX, y: avatarY }}
         >
           <Image
-            src="/scene/selyan_avatar.png"
-            alt="Selyan Mouhali mobile"
+            src="/scene/0632eb4c-b335-45ce-9b5b-2d5954c0b996.png"
+            alt=""
             fill
             priority
             fetchPriority="high"
-            className="object-contain object-center scale-[1.05] translate-y-[4%] min-[501px]:scale-[1.2] md:hidden"
+            className="object-cover object-center md:hidden"
             sizes="(max-width: 500px) 100vw, 50vw"
           />
           <Image
