@@ -106,8 +106,7 @@ const s: Record<string, Record<Lang, string>> = {
   passion_economy_d:  { fr: "Passionné par les marchés financiers, la géopolitique et le trading.", en: "Passionate about financial markets, geopolitics and trading.", es: "Apasionado por los mercados financieros, la geopolítica y el trading.", ko: "금융 시장, 지정학, 트레이딩에 대한 열정." },
   passion_ai:         { fr: "IA, LLM & Machine Learning", en: "AI, LLM & Machine Learning", es: "IA, LLM & Machine Learning", ko: "AI, LLM & 머신러닝" },
   passion_ai_d:       { fr: "Fasciné par l'intelligence artificielle, les grands modèles de langage et l'apprentissage automatique.", en: "Fascinated by artificial intelligence, large language models and machine learning.", es: "Fascinado por la inteligencia artificial, los grandes modelos de lenguaje y el aprendizaje automático.", ko: "인공지능, 대규모 언어 모델, 머신러닝에 대한 관심." },
-  passion_gym:        { fr: "Musculation & Sport", en: "Gym & Sports", es: "Gimnasio & Deporte", ko: "헬스 & 스포츠" },
-  passion_gym_d:      { fr: "Pratiquant régulier en salle de musculation — passionné de sport en général.", en: "Regular gym-goer — passionate about sports in general.", es: "Asistente regular al gimnasio — apasionado del deporte en general.", ko: "규칙적인 웨이트 트레이닝 — 스포츠 전반에 대한 열정." },
+
 
   /* ── Internship Search (replaces AI & Innovation) ── */
   intern_intro:       { fr: "Actuellement à la recherche d'opportunités pour compléter ma formation d'ingénieur par des expériences concrètes en entreprise.", en: "Currently looking for opportunities to complement my engineering studies with real-world professional experience.", es: "Actualmente en búsqueda de oportunidades para complementar mi formación con experiencia profesional real.", ko: "공학 학업을 보완할 실무 경험 기회를 찾고 있습니다." },

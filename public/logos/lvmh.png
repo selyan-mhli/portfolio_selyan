@@ -36,6 +36,6 @@ details[open] { background: #970302; color: #dfdedd; }
 <p>Not Found</p>
 </div>
 </div>
-<div class="footer"><p>If you report this error to the Wikimedia System Administrators, please include the details below.</p><p class="text-muted"><code>Request served via cp6007 cp6007, Varnish XID 736799461<br>Upstream caches: cp6007 int<br>Error: 404, Not Found at Sun, 08 Mar 2026 00:45:49 GMT<br><details><summary>Sensitive client information</summary>IP address: 2a04:cec0:f063:5efe:61d2:569b:28b5:8fe5</details></code></p>
+<div class="footer"><p>If you report this error to the Wikimedia System Administrators, please include the details below.</p><p class="text-muted"><code>Request served via cp6007 cp6007, Varnish XID 737945737<br>Upstream caches: cp6007 int<br>Error: 404, Not Found at Sun, 08 Mar 2026 00:46:04 GMT<br><details><summary>Sensitive client information</summary>IP address: 2a04:cec0:f063:5efe:61d2:569b:28b5:8fe5</details></code></p>
 </div>
 </html>

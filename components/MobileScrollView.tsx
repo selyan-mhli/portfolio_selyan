@@ -458,7 +458,6 @@ function buildSections(
             { emoji: "✈️", title: t("passion_travel", lang), desc: t("passion_travel_d", lang) },
             { emoji: "💹", title: t("passion_economy", lang), desc: t("passion_economy_d", lang) },
             { emoji: "🤖", title: t("passion_ai", lang), desc: t("passion_ai_d", lang) },
-            { emoji: "💪", title: t("passion_gym", lang), desc: t("passion_gym_d", lang) },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-3">
               <span className="text-xl">{item.emoji}</span>
@@ -563,10 +562,10 @@ export default function MobileScrollView() {
             <AnimatePresence>
               {langOpen && (
                 <m.div
-                  className="absolute bottom-10 left-0 flex flex-col gap-1 rounded-xl border border-white/10 bg-obsidian p-1.5 shadow-xl"
-                  initial={{ opacity: 0, y: 6, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.9 }}
+                  className="absolute bottom-0 left-10 flex flex-row gap-1 rounded-xl border border-white/10 bg-obsidian p-1.5 shadow-xl"
+                  initial={{ opacity: 0, x: -6, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -6, scale: 0.9 }}
                   transition={{ duration: 0.15 }}
                 >
                   {LANG_ORDER.filter((l) => l !== lang).map((l) => (
@@ -739,6 +738,15 @@ export default function MobileScrollView() {
                   <Image src="/scene/linkedin-qr.svg" alt="QR code LinkedIn Selyan Mouhali" width={120} height={120} className="h-[120px] w-[120px]" />
                 </div>
                 <p className="text-[9px] text-white/30">{t("scanToConnect", lang)}</p>
+                <a
+                  href="https://www.linkedin.com/in/selyan-mouhali/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.02] px-3 py-2 text-xs text-bronze transition-colors hover:border-bronze/40 hover:bg-bronze/10 hover:text-bronze/90"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.036 0 3.6 2.001 3.6 4.601v5.595z"/></svg>
+                  <span>linkedin.com/in/selyan-mouhali</span>
+                </a>
               </div>
             </m.div>
           </m.div>
