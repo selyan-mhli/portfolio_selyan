@@ -1,20 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-
-const displayFont = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://selyanmouhali.fr"),
@@ -89,9 +74,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${displayFont.variable} ${bodyFont.variable} bg-obsidian text-sand antialiased`}
-      >
+      <body className="bg-obsidian text-sand antialiased">
         {children}
       </body>
     </html>

@@ -568,9 +568,9 @@ export default function MobileScrollView() {
 
       {/* ── Title — CSS fade-in (no JS animation cost) ── */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <h1 className="font-[var(--font-display)] text-[2rem] font-semibold tracking-[0.10em] text-bronze/80 text-center leading-tight drop-shadow-[0_2px_16px_rgba(183,138,89,0.3)] animate-fade-in-title">
+        <h1 className="font-[var(--font-display)] text-[2rem] font-semibold tracking-[0.10em] text-copper text-center leading-tight drop-shadow-[0_3px_18px_rgba(192,132,252,0.5)] animate-fade-in-title">
           {t("portfolioTitle", lang)}
-          <span className="inline-block w-[2px] h-[1.1em] bg-bronze/60 align-middle ml-0.5 animate-blink" />
+          <span className="inline-block w-[2px] h-[1.1em] bg-copper/85 align-middle ml-0.5 animate-blink" />
         </h1>
       </div>
 

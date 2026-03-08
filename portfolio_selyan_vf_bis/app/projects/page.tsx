@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import TrackedLink from "@/components/TrackedLink";
+import Link from "next/link";
 import { projects } from "@/lib/projects";
+
 const BLUR_DATA_URL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
@@ -40,14 +41,15 @@ export default function ProjectsPage() {
               <div className="p-5">
                 <h2 className="text-xl font-semibold text-sand">{project.title}</h2>
                 <p className="mt-2 text-sm text-white/65">{project.shortDescription}</p>
-                <TrackedLink
+                <Link
                   href={`/projects/${project.slug}`}
-                  eventName="project_open"
-                  eventData={{ slug: project.slug, source: "projects_index" }}
+                  data-track-event="project_open"
+                  data-track-slug={project.slug}
+                  data-track-source="projects_index"
                   className="mt-4 inline-flex h-11 items-center justify-center rounded-lg border border-bronze/40 px-4 text-sm font-medium text-bronze transition hover:bg-bronze/10"
                 >
-                  Voir l'étude de cas
-                </TrackedLink>
+                  Voir l&apos;étude de cas
+                </Link>
               </div>
             </article>
           ))}

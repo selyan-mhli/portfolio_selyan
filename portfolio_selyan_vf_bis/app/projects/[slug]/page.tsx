@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import TrackedLink from "@/components/TrackedLink";
 import { getProjectBySlug, projects } from "@/lib/projects";
+
 const BLUR_DATA_URL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
@@ -68,17 +68,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               {project.links.map((link) => (
-                <TrackedLink
+                <a
                   key={link.href}
                   href={link.href}
-                  eventName="project_external_click"
-                  eventData={{ slug: project.slug, href: link.href }}
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-bronze/40 px-4 text-sm font-medium text-bronze transition hover:bg-bronze/10"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-track-event="project_external_click"
+                  data-track-slug={project.slug}
+                  data-track-href={link.href}
+                  className="inline-flex h-11 items-center justify-center rounded-xl border border-bronze/40 px-4 text-sm font-medium text-bronze transition hover:bg-bronze/10"
                 >
                   {link.label}
-                </TrackedLink>
+                </a>
               ))}
             </div>
           </div>

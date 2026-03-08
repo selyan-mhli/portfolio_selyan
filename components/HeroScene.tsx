@@ -430,45 +430,24 @@ const FLAGS: Record<Lang, string> = { fr: "🇫🇷", en: "🇬🇧", es: "🇪�
 const LANG_ORDER: Lang[] = ["en", "fr", "es", "ko"];
 
 function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
-  const [open, setOpen] = useState(false);
-  const others = LANG_ORDER.filter((l) => l !== lang);
-
   return (
-    <div className="relative flex flex-col-reverse items-center gap-2">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Change language"
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
-      >
-        {FLAGS[lang]}
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="flex flex-col gap-2"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 16 }}
-            transition={{ duration: 0.25 }}
-          >
-            {others.map((l, i) => (
-              <motion.button
-                key={l}
-                type="button"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: i * 0.05 }}
-                onClick={() => { setLang(l); setOpen(false); }}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg transition-colors hover:bg-white/10 hover:border-bronze/40"
-              >
-                {FLAGS[l]}
-              </motion.button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="flex items-center gap-2 rounded-2xl border border-violet-400/40 bg-violet-500/10 p-2 backdrop-blur-xl">
+      {LANG_ORDER.map((l) => (
+        <button
+          key={l}
+          type="button"
+          onClick={() => setLang(l)}
+          aria-label={`Switch language to ${l.toUpperCase()}`}
+          aria-pressed={l === lang}
+          className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300 ${
+            l === lang
+              ? "border-violet-300/80 bg-violet-500/35 shadow-[0_0_16px_rgba(139,92,246,0.35)]"
+              : "border-violet-400/35 bg-black/35 hover:border-violet-300/70 hover:bg-violet-500/20"
+          }`}
+        >
+          {FLAGS[l]}
+        </button>
+      ))}
     </div>
   );
 }
@@ -535,8 +514,11 @@ function MobileMenu({
                     key={l}
                     type="button"
                     onClick={() => setLang(l)}
-                    className={`flex h-8 w-8 items-center justify-center rounded-full border text-sm transition-colors ${
-                      l === lang ? "border-bronze/50 bg-bronze/15" : "border-white/10 bg-white/5"
+                    aria-pressed={l === lang}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg transition-colors ${
+                      l === lang
+                        ? "border-violet-300/80 bg-violet-500/30 shadow-[0_0_14px_rgba(139,92,246,0.35)]"
+                        : "border-violet-400/35 bg-black/35 hover:border-violet-300/70 hover:bg-violet-500/20"
                     }`}
                   >
                     {FLAGS[l]}
