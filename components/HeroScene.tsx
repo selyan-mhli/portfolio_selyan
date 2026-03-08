@@ -24,7 +24,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "cubes",
     src: "/scene/rose-projets.png",
     alt: "Projects",
-    className: "left-[6%] top-[14%] w-14 sm:left-[8%] sm:w-16 md:left-[8%] md:top-[15%] md:w-20 lg:left-[20%] lg:top-[16%] lg:w-24",
+    className: "left-[4%] top-[16%] w-10 md:left-[6%] md:top-[15%] md:w-14 lg:left-[20%] lg:top-[16%] lg:w-24",
     depth: 40,
     label: "Projects",
     side: "left"
@@ -33,7 +33,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "phone",
     src: "/scene/rose-experience.png",
     alt: "Experience",
-    className: "left-[3%] top-[32%] w-14 sm:left-[5%] sm:w-16 md:left-[6%] md:top-[32%] md:w-20 lg:left-[18%] lg:top-[34%] lg:w-28",
+    className: "left-[2%] top-[34%] w-11 md:left-[4%] md:top-[32%] md:w-14 lg:left-[18%] lg:top-[34%] lg:w-28",
     depth: 55,
     label: "Experience",
     side: "left"
@@ -42,7 +42,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "text-card",
     src: "/scene/rose-formation.png",
     alt: "Education",
-    className: "left-[6%] top-[52%] w-14 sm:left-[7%] sm:w-[4.5rem] md:left-[7%] md:top-[52%] md:w-24 lg:left-[20%] lg:top-[54%] lg:w-36",
+    className: "left-[6%] top-[52%] w-11 md:left-[5%] md:top-[52%] md:w-16 lg:left-[20%] lg:top-[54%] lg:w-36",
     depth: 35,
     label: "Education",
     side: "left"
@@ -51,7 +51,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "polyhedron",
     src: "/scene/rose-apropos.png",
     alt: "About",
-    className: "right-[10%] top-[12%] w-12 sm:right-[12%] sm:w-14 md:right-[14%] md:top-[14%] md:w-[4.5rem] lg:left-[60%] lg:top-[12%] lg:w-24",
+    className: "right-[12%] top-[18%] w-10 md:right-[18%] md:top-[14%] md:w-12 lg:left-[60%] lg:top-[12%] lg:w-24",
     depth: 25,
     label: "About",
     side: "right"
@@ -60,7 +60,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "toggle-stack",
     src: "/scene/rose-tech.png",
     alt: "Tech Stack",
-    className: "right-[3%] top-[26%] w-14 sm:right-[5%] sm:w-16 md:right-[8%] md:top-[24%] md:w-20 lg:right-[20%] lg:top-[22%] lg:w-28",
+    className: "right-[2%] top-[26%] w-11 md:right-[6%] md:top-[22%] md:w-14 lg:right-[20%] lg:top-[22%] lg:w-28",
     depth: 50,
     label: "Tech Stack & Skills",
     side: "right"
@@ -69,7 +69,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "palette",
     src: "/scene/rose-passions.png",
     alt: "Passions",
-    className: "right-[5%] top-[42%] w-14 sm:right-[6%] sm:w-16 md:right-[7%] md:top-[40%] md:w-20 lg:right-[18%] lg:top-[40%] lg:w-28",
+    className: "right-[5%] top-[42%] w-11 md:right-[5%] md:top-[40%] md:w-14 lg:right-[18%] lg:top-[40%] lg:w-28",
     depth: 45,
     label: "Passions",
     side: "right"
@@ -78,7 +78,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "ai",
     src: "/scene/rose-stage.png",
     alt: "Internship",
-    className: "right-[4%] top-[58%] w-14 sm:right-[5%] sm:w-16 md:right-[8%] md:top-[58%] md:w-20 lg:right-[20%] lg:top-[62%] lg:w-28",
+    className: "right-[3%] top-[58%] w-11 md:right-[6%] md:top-[60%] md:w-14 lg:right-[20%] lg:top-[62%] lg:w-28",
     depth: 60,
     label: "AI & Innovation",
     side: "right"
@@ -87,7 +87,7 @@ const SCENE_ICONS: SceneIcon[] = [
     id: "dots",
     src: "/scene/rose-certifications.png",
     alt: "Certifications",
-    className: "left-[8%] top-[68%] w-12 sm:left-[10%] sm:w-14 md:left-[10%] md:top-[70%] md:w-16 lg:left-[28%] lg:top-[70%] lg:w-20",
+    className: "left-[8%] top-[68%] w-9 md:left-[8%] md:top-[72%] md:w-11 lg:left-[28%] lg:top-[70%] lg:w-20",
     depth: 20,
     label: "Certifications",
     side: "left"
@@ -619,15 +619,30 @@ export default function HeroScene() {
         >
           <Image
             src="/scene/selyan_avatar.png"
-            alt="Selyan Mouhali"
+            alt="Selyan Mouhali mobile"
             fill
             priority
             fetchPriority="high"
-            className="object-contain object-center
-              scale-[1.05] translate-y-[4%]
-              min-[501px]:scale-[0.95] min-[501px]:translate-y-[2%]
-              lg:scale-100 lg:translate-y-0"
-            sizes="(min-width: 1340px) 50vw, 100vw"
+            className="object-contain object-center scale-[1.05] translate-y-[4%] min-[501px]:scale-[1.2] md:hidden"
+            sizes="(max-width: 500px) 100vw, 50vw"
+          />
+          <Image
+            src="/scene/selyan_avatar.png"
+            alt="Selyan Mouhali tablet"
+            fill
+            priority
+            fetchPriority="high"
+            className="hidden object-contain object-center scale-[1.08] translate-y-[2%] md:block lg:hidden"
+            sizes="(max-width: 1024px) 80vw, 50vw"
+          />
+          <Image
+            src="/scene/selyan_avatar.png"
+            alt="Selyan Mouhali desktop"
+            fill
+            priority
+            fetchPriority="high"
+            className="hidden object-contain object-center lg:block"
+            sizes="50vw"
           />
         </motion.div>
 

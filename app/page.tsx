@@ -38,7 +38,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="h-screen w-full overflow-hidden" role="main">
+    <main className={isMobile ? "h-screen w-full" : "h-screen w-full overflow-hidden"} role="main">
       {(!loaded || isMobile === null) && (
         <div
           className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#09090f] transition-opacity duration-[600ms] ease-in-out ${loaded && isMobile !== null ? "opacity-0 pointer-events-none" : "opacity-100"}`}
