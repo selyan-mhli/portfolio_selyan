@@ -623,26 +623,11 @@ export default function HeroScene() {
             fill
             priority
             fetchPriority="high"
-            className="object-contain object-center scale-[1.05] translate-y-[4%] min-[501px]:scale-[1] md:hidden"
-            sizes="(max-width: 500px) 100vw, 50vw"
-          />
-          <Image
-            src="/scene/selyan_avatar.png"
-            alt="Selyan Mouhali tablet"
-            fill
-            priority
-            fetchPriority="high"
-            className="hidden object-contain object-center scale-[0.95] translate-y-[2%] md:block lg:hidden"
-            sizes="(max-width: 1024px) 80vw, 50vw"
-          />
-          <Image
-            src="/scene/selyan_avatar.png"
-            alt="Selyan Mouhali desktop"
-            fill
-            priority
-            fetchPriority="high"
-            className="hidden object-contain object-center lg:block"
-            sizes="50vw"
+            className="object-contain object-center
+              scale-[1.05] translate-y-[4%]
+              min-[501px]:scale-[0.95] min-[501px]:translate-y-[2%]
+              lg:scale-100 lg:translate-y-0"
+            sizes="(min-width: 1340px) 50vw, 100vw"
           />
         </motion.div>
 

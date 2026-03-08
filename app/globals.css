@@ -128,6 +128,15 @@ h4 {
   animation: mobile-float-fade-in 0.4s ease-out forwards;
 }
 
+/* ── Mobile title fade-in (replaces costly typewriter JS animation) ── */
+@keyframes fade-in-title {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-title {
+  animation: fade-in-title 0.7s ease-out 0.3s both;
+}
+
 /* ── Mobile scroll view ── */
 .mobile-scroll-container {
   -webkit-overflow-scrolling: touch;

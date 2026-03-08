@@ -492,10 +492,10 @@ export default function MobileScrollView() {
     <div className="relative h-[100dvh] overflow-hidden bg-obsidian" role="main" aria-label="Portfolio of Selyan Mouhali">
       {/* Background — same as desktop */}
       <div className="pointer-events-none absolute inset-0 z-0 bg-black" aria-hidden="true">
-        {/* Glow orbs */}
-        <div className="absolute left-1/2 top-[38%] h-[50vh] w-[50vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze/20 blur-[120px]" />
-        <div className="absolute left-1/2 top-[42%] h-[30vh] w-[30vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-copper/25 blur-[80px]" />
-        <div className="absolute left-1/2 top-[36%] h-[18vh] w-[18vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-olive/20 blur-[60px]" />
+        {/* Glow orbs — lighter blur on mobile for GPU perf */}
+        <div className="absolute left-1/2 top-[38%] h-[40vh] w-[40vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bronze/15 blur-[80px]" />
+        <div className="absolute left-1/2 top-[42%] h-[25vh] w-[25vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-copper/20 blur-[60px]" />
+        <div className="absolute left-1/2 top-[36%] h-[15vh] w-[15vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-olive/15 blur-[40px]" />
         {/* Avatar — same as desktop */}
         <div className="absolute inset-0 z-[1]">
           <Image
@@ -503,7 +503,7 @@ export default function MobileScrollView() {
             alt="Selyan Mouhali"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 500px) 100vw, 80vw"
             className="object-contain object-center scale-[1.05] translate-y-[4%]"
           />
         </div>
@@ -513,22 +513,13 @@ export default function MobileScrollView() {
         <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_44%,rgba(0,0,0,0)_24%,rgba(0,0,0,0.42)_68%,rgba(0,0,0,0.85)_100%)]" />
       </div>
 
-      {/* ── Title — centered with typewriter animation ── */}
+      {/* ── Title — CSS fade-in (no JS animation cost) ── */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <h1 className="font-[var(--font-display)] text-[2rem] font-semibold tracking-[0.10em] text-bronze/80 text-center leading-tight drop-shadow-[0_2px_16px_rgba(183,138,89,0.3)]">
-          {t("portfolioTitle", lang).split("").map((char, i) => (
-              <m.span
-                key={`${lang}-${i}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.04, delay: 0.4 + i * 0.06 }}
-              >
-                {char}
-              </m.span>
-            ))}
-            <span className="inline-block w-[2px] h-[1.1em] bg-bronze/60 align-middle ml-0.5 animate-blink" />
-          </h1>
-        </div>
+        <h1 className="font-[var(--font-display)] text-[2rem] font-semibold tracking-[0.10em] text-bronze/80 text-center leading-tight drop-shadow-[0_2px_16px_rgba(183,138,89,0.3)] animate-fade-in-title">
+          {t("portfolioTitle", lang)}
+          <span className="inline-block w-[2px] h-[1.1em] bg-bronze/60 align-middle ml-0.5 animate-blink" />
+        </h1>
+      </div>
 
       {/* ── Floating icons (CSS animations for GPU performance) ── */}
       {!activeIconId && MOBILE_ICONS.map((icon) => (
@@ -582,7 +573,7 @@ export default function MobileScrollView() {
             <AnimatePresence>
               {langOpen && (
                 <m.div
-                  className="absolute bottom-10 left-0 flex flex-col gap-1 rounded-xl border border-white/10 bg-obsidian/95 backdrop-blur-md p-1.5 shadow-xl"
+                  className="absolute bottom-10 left-0 flex flex-col gap-1 rounded-xl border border-white/10 bg-obsidian p-1.5 shadow-xl"
                   initial={{ opacity: 0, y: 6, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.9 }}
@@ -657,7 +648,7 @@ export default function MobileScrollView() {
           >
             {/* Backdrop */}
             <m.div
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/75"
               onClick={() => setActiveIconId(null)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -670,7 +661,7 @@ export default function MobileScrollView() {
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               transition={{ type: "spring", stiffness: 180, damping: 22 }}
             >
-              <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-obsidian/95 backdrop-blur-md p-5 shadow-2xl">
+              <div className="relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-obsidian p-5 shadow-2xl">
                 <button
                   type="button"
                   onClick={() => setActiveIconId(null)}
@@ -705,7 +696,7 @@ export default function MobileScrollView() {
       <AnimatePresence>
         {showContact && (
           <m.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -768,7 +759,7 @@ export default function MobileScrollView() {
       <AnimatePresence>
         {previewUrl && (
           <m.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
