@@ -609,7 +609,7 @@ export default function MobileScrollView() {
             <AnimatePresence>
               {langOpen && (
                 <m.div
-                  className="absolute bottom-0 left-10 flex flex-row gap-1 rounded-xl border border-white/10 bg-obsidian p-1.5 shadow-xl"
+                  className="absolute bottom-0 left-10 flex flex-col gap-1 rounded-xl border border-white/10 bg-obsidian p-1.5 shadow-xl"
                   initial={{ opacity: 0, x: -6, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: -6, scale: 0.9 }}

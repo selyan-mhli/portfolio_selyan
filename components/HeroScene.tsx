@@ -508,7 +508,7 @@ function MobileMenu({
 
             <div className="border-t border-white/[0.06] pt-3 space-y-3">
               {/* Language switcher */}
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex flex-col items-center justify-center gap-2">
                 {LANG_ORDER.map((l) => (
                   <button
                     key={l}
