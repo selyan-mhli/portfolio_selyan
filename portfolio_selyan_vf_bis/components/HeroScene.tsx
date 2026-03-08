@@ -530,19 +530,23 @@ function MobileMenu({
 
             <div className="border-t border-white/[0.06] pt-3 space-y-3">
               {/* Language switcher */}
-              <div className="flex items-center justify-center gap-2">
+              <div className="mx-auto w-full max-w-[360px] rounded-[28px] border border-bronze/60 bg-[#120a25]/85 px-2.5 py-2 shadow-[0_0_24px_rgba(76,29,149,0.35)]">
+                <div className="flex items-center justify-between gap-2">
                 {LANG_ORDER.map((l) => (
                   <button
                     key={l}
                     type="button"
                     onClick={() => setLang(l)}
-                    className={`flex h-11 w-11 items-center justify-center rounded-full border text-sm transition-colors ${
-                      l === lang ? "border-bronze/50 bg-bronze/15" : "border-white/10 bg-white/5"
+                    className={`flex h-12 w-12 items-center justify-center rounded-full border text-lg transition-colors ${
+                      l === lang
+                        ? "border-[#a78bfa] bg-[#6d4db6]/45 shadow-[0_0_14px_rgba(167,139,250,0.45)]"
+                        : "border-[#6f5ab2]/70 bg-transparent hover:bg-white/[0.04]"
                     }`}
                   >
                     {FLAGS[l]}
                   </button>
                 ))}
+                </div>
               </div>
 
               {/* Social links */}
@@ -856,11 +860,11 @@ export default function HeroScene() {
         )}
       </AnimatePresence>
 
-      {/* Mobile burger menu — top right */}
+      {/* Burger menu — top right */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div
-            className="absolute right-4 top-4 z-30 lg:hidden"
+            className="absolute right-4 top-4 z-30"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}

@@ -61,10 +61,10 @@ export default function FloatingIcon({
           height={size}
           loading="lazy"
           quality={75}
-          className="h-auto w-full select-none object-contain drop-shadow-[0_8px_24px_rgba(168,85,247,0.25)]"
+          className="h-auto w-full scale-[1.06] select-none object-contain drop-shadow-[0_10px_26px_rgba(192,132,252,0.34)]"
         />
         <span
-          className={`pointer-events-none absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-[var(--font-display)] text-sm font-semibold tracking-wide text-sand opacity-0 transition-opacity duration-300 group-hover:opacity-100 hidden md:block md:text-base ${labelSide}`}
+          className={`pointer-events-none absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-[var(--font-display)] text-sm font-semibold tracking-wide text-copper drop-shadow-[0_2px_10px_rgba(192,132,252,0.35)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 hidden md:block md:text-base ${labelSide}`}
         >
           {label}
         </span>

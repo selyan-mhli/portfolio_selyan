@@ -73,6 +73,50 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+  function collectPayload(node) {
+    var payload = {};
+    var keys = ["cta", "placement", "slug", "source", "href", "channel"];
+    for (var i = 0; i < keys.length; i += 1) {
+      var key = keys[i];
+      var attr = "track" + key.charAt(0).toUpperCase() + key.slice(1);
+      if (node.dataset && node.dataset[attr]) {
+        payload[key] = node.dataset[attr];
+      }
+    }
+    return payload;
+  }
+
+  function send(eventName, payload) {
+    if (typeof window === "undefined") return;
+    window.dispatchEvent(new CustomEvent("portfolio:track", { detail: Object.assign({ eventName: eventName }, payload) }));
+    if (typeof window.gtag === "function") {
+      window.gtag("event", eventName, payload);
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    if (!target || !(target instanceof Element)) return;
+    var tracked = target.closest("[data-track-event]");
+    if (!tracked) return;
+    var eventName = tracked.getAttribute("data-track-event");
+    if (!eventName) return;
+    send(eventName, collectPayload(tracked));
+  });
+
+  document.addEventListener("submit", function (event) {
+    var form = event.target;
+    if (!form || !(form instanceof HTMLFormElement)) return;
+    var eventName = form.getAttribute("data-track-event");
+    if (!eventName) return;
+    send(eventName, { source: "contact_form" });
+  });
+})();`,
+          }}
+        />
       </head>
       <body className="bg-obsidian text-sand antialiased">
         {children}

@@ -73,11 +73,11 @@ function MobileFloatingIcon({
         <Image
           src={icon.src}
           alt={label}
-          width={72}
-          height={72}
-          className="h-[4.5rem] w-[4.5rem] object-contain drop-shadow-[0_6px_14px_rgba(168,85,247,0.28)]"
+          width={80}
+          height={80}
+          className="h-[5rem] w-[5rem] object-contain drop-shadow-[0_8px_16px_rgba(192,132,252,0.38)]"
         />
-        <span className="max-w-[70px] text-center text-[9px] leading-tight tracking-wide text-white/40">
+        <span className="max-w-[86px] text-center text-[10px] font-medium leading-tight tracking-wide text-copper drop-shadow-[0_2px_10px_rgba(192,132,252,0.35)]">
           {label}
         </span>
       </m.button>
