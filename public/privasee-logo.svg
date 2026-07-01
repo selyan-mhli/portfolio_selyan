@@ -1,0 +1,48 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Privasee transparent logo</title>
+  <desc id="desc">High-resolution vector Privasee P ribbon mark on transparent background.</desc>
+  <defs>
+    <linearGradient id="ribbon-main" x1="241" y1="234" x2="761" y2="824" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD4DF"/>
+      <stop offset="0.22" stop-color="#F472B6"/>
+      <stop offset="0.52" stop-color="#EC4899"/>
+      <stop offset="0.76" stop-color="#C026D3"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ribbon-top" x1="238" y1="248" x2="739" y2="332" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD4DF"/>
+      <stop offset="0.48" stop-color="#F9A8D4"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+    <linearGradient id="ribbon-stem" x1="268" y1="507" x2="430" y2="869" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F43F8F"/>
+      <stop offset="0.44" stop-color="#D946EF"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ribbon-fold" x1="335" y1="476" x2="603" y2="561" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.82"/>
+      <stop offset="0.58" stop-color="#FFFFFF" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M238 285C238 261.804 256.804 243 280 243H542C660.741 243 749 323.087 749 433.5C749 543.167 661.214 621 542.5 621H440C401.34 621 370 652.34 370 691V796.8C370 811.072 362.753 824.367 350.757 832.092L249 897.62V627.5C249 524.775 332.275 441.5 435 441.5H548.5C592.683 441.5 625 415.635 625 380.5C625 344.915 592.683 320 548.5 320H273C253.67 320 238 304.33 238 285Z"
+    fill="url(#ribbon-main)"
+  />
+
+  <path
+    d="M238 285C238 261.804 256.804 243 280 243H542C632.716 243 705.449 289.829 735.512 360.529C691.983 334.512 640.516 320 587.999 320H273C253.67 320 238 304.33 238 285Z"
+    fill="url(#ribbon-top)"
+  />
+
+  <path
+    d="M249 627.5C249 524.775 332.275 441.5 435 441.5H530.5C475.612 458.774 423.764 488.709 387.26 535.68C329.309 610.239 319.271 734.059 330.724 845.136L249 897.62V627.5Z"
+    fill="url(#ribbon-stem)"
+  />
+
+  <path
+    d="M385.5 489.5C431.727 457.663 488.589 441.5 550.5 441.5H625.589C604.444 489.54 555.907 524 500 524H426.9C399.465 524 374.754 535.921 357.702 554.87C364.625 529.609 373.494 506.915 385.5 489.5Z"
+    fill="url(#ribbon-fold)"
+  />
+</svg>

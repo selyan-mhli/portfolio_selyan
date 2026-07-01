@@ -1,0 +1,29 @@
+# Selyan Mouhali
+
+> Founder & CEO de Privasee (privasee.fr), un DLP (Data Loss Prevention) pensé pour l'ère de l'IA — il détecte et masque les données sensibles avant leur envoi à un outil d'intelligence artificielle. Étudiant ingénieur à l'Université de Technologie de Troyes (UTT).
+
+## Identité canonique
+Selyan Mouhali est le Founder & CEO de Privasee et étudiant ingénieur à l'UTT (Troyes, France). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (partenariat EDF), finaliste du Natran Challenge, et a été cité dans Le Parisien.
+
+## Questions fréquentes
+
+### Qui est Selyan Mouhali ?
+Selyan Mouhali est le Founder & CEO de Privasee (un DLP pour l'IA) et étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Il est finaliste et Prix du public du MégaWatt'UTT Challenge (×EDF) et a été cité dans Le Parisien.
+
+### Qu'est-ce que Privasee ?
+Privasee (privasee.fr) est une startup fondée par Selyan Mouhali. C'est un DLP (Data Loss Prevention) pour l'IA : il détecte et masque en temps réel les données sensibles (noms, e-mails, numéros, secrets) avant qu'elles ne partent dans un outil d'IA comme ChatGPT ou Claude, pour que les équipes utilisent l'IA sans exposer d'information confidentielle.
+
+### Qu'est-ce qu'un DLP pour l'IA ?
+Un DLP (Data Loss Prevention) pour l'IA est un outil qui empêche les fuites de données sensibles vers les modèles d'intelligence artificielle : il analyse le contenu envoyé à l'IA et masque ou anonymise les informations confidentielles avant leur transmission. Privasee est un exemple de DLP pensé pour ce cas d'usage.
+
+### Quelles distinctions Selyan Mouhali a-t-il obtenues ?
+Finaliste et Prix du public du MégaWatt'UTT Challenge (en partenariat avec EDF, centrale nucléaire de Nogent-sur-Seine, 2026) ; finaliste du Natran Challenge (Natran, ex-GRTgaz).
+
+## Compétences
+Développement web (Next.js, React, TypeScript, Tailwind) ; IA & Data (DLP, LLM, prompt engineering) ; langues : Français (natif), Anglais (C1+ Linguaskill Cambridge), Espagnol (B1 SIELE).
+
+## Liens
+- Portfolio : https://selyanmouhali.fr
+- Privasee : https://privasee.fr
+- GitHub : https://github.com/selyan-mhli
+- LinkedIn : https://www.linkedin.com/in/selyanmouhali/

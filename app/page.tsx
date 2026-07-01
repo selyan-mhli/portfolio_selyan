@@ -1,0 +1,31 @@
+import Nav from "@/components/Nav";
+import Hero from "@/components/sections/Hero";
+import Privazee from "@/components/sections/Privazee";
+import Projects from "@/components/sections/Projects";
+import Press from "@/components/sections/Press";
+import Stack from "@/components/sections/Stack";
+import Experience from "@/components/sections/Experience";
+import Education from "@/components/sections/Education";
+import Certifications from "@/components/sections/Certifications";
+import Passions from "@/components/sections/Passions";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
+
+export default function Page() {
+  return (
+    <main className="relative">
+      <Nav />
+      <Hero />
+      <Privazee />
+      <Projects />
+      <Press />
+      <Stack />
+      <Experience />
+      <Education />
+      <Certifications />
+      <Passions />
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
