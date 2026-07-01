@@ -64,7 +64,7 @@ export default function Hero() {
         {/* Left — thesis */}
         <div>
           {/* Avatar rond — mobile/tablette uniquement (le grand portrait s'affiche en desktop) */}
-          <div className="hero-avatar lg:hidden mx-auto mb-9 h-64 w-64 max-w-[76vw] max-h-[76vw] overflow-hidden rounded-full border border-white/15 bg-surface">
+          <div className="hero-avatar lg:hidden mx-auto mb-9 h-80 w-80 max-w-[84vw] max-h-[84vw] overflow-hidden rounded-full border border-white/15 bg-surface">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/selyan.jpg"
