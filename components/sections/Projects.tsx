@@ -188,7 +188,7 @@ export default function Projects() {
       <div className="mono-label mb-6">02 / Projets &amp; concours</div>
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-4">Ce que je construis.</h2>
       <p className="max-w-xl text-white/55 mb-4">
-        Des concours industriels primés aux projets de développement — du concret,
+        Des concours industriels primés aux projets de développement : du concret,
         expliqué et démontrable.
       </p>
 

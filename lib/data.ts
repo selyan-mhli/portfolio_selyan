@@ -10,7 +10,7 @@ export const startup = {
   url: "https://privasee.fr",
   tagline: "Le DLP pensé pour l'ère de l'IA.",
   pitch:
-    "Privasee détecte et masque en temps réel les données sensibles — noms, e-mails, numéros, secrets — avant qu'elles ne partent dans un outil d'IA comme ChatGPT ou Claude. L'idée : laisser les équipes profiter de l'IA sans jamais exposer d'information confidentielle.",
+    "Privasee détecte et masque en temps réel les données sensibles (noms, e-mails, numéros, secrets) avant qu'elles ne partent dans un outil d'IA comme ChatGPT ou Claude. L'idée : laisser les équipes profiter de l'IA sans jamais exposer d'information confidentielle.",
   points: [
     "Détection et anonymisation à la volée avant l'envoi au modèle.",
     "Pensé pour les équipes qui veulent adopter l'IA sans risque de fuite.",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     year: "2024",
     kind: "projet",
     problem:
-      "Site thématique responsive sur Londres — structuration du contenu, hiérarchie typographique et navigation soignées.",
+      "Site thématique responsive sur Londres : structuration du contenu, hiérarchie typographique et navigation soignées.",
     description:
       "Réalisé dans le cadre du module MM01 : un parcours visuel autour de Londres, entièrement responsive, avec un travail sur la hiérarchie typographique et la fluidité de navigation.",
     stack: ["HTML", "CSS", "Responsive"],
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     year: "2025",
     kind: "projet",
     problem:
-      "Implémentation Java du jeu de cartes Jest — architecture MVC, IA à 2 stratégies, interfaces console + GUI Swing.",
+      "Implémentation Java du jeu de cartes Jest : architecture MVC, IA à 2 stratégies, interfaces console et GUI Swing.",
     description:
       "Projet académique LO02 (UTT) : implémentation complète du jeu Jest en Java, avec une architecture logicielle rigoureuse s'appuyant sur les patrons de conception Strategy, Visitor et Observer. Séparation MVC stricte, tests unitaires, double interface (console et Swing).",
     stack: ["Java 17+", "MVC", "Strategy", "Visitor", "Observer"],
@@ -135,7 +135,7 @@ export const experiences: Experience[] = [
     logo: "/privasee-logo.svg",
     featured: true,
     bullets: [
-      "Création de Privasee — un DLP pensé pour l'ère de l'IA (privasee.fr).",
+      "Création de Privasee, un DLP pensé pour l'ère de l'IA (privasee.fr).",
       "Vision produit, développement et stratégie de la startup.",
     ],
   },
@@ -260,11 +260,11 @@ export type Passion = { title: string; desc: string };
 export const passions: Passion[] = [
   {
     title: "Karaté",
-    desc: "Ceinture noire — 10 ans de pratique. Plusieurs fois champion régional et interrégional.",
+    desc: "Ceinture noire, 10 ans de pratique. Plusieurs fois champion régional et interrégional.",
   },
   {
     title: "Football",
-    desc: "Passionné de ballon rond depuis 2 ans — esprit d'équipe et dépassement de soi.",
+    desc: "Passionné de ballon rond depuis 2 ans : esprit d'équipe et dépassement de soi.",
   },
   {
     title: "Sport automobile",

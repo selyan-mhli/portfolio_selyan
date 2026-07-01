@@ -94,7 +94,7 @@ export default function Hero() {
             >
               Privasee
             </a>
-            . Je construis des produits concrets — d'un DLP pour l'IA à des solutions
+            . Je construis des produits concrets, du DLP pour l'IA aux solutions
             primées en challenge industriel.
           </p>
 
