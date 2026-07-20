@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projects, type Project } from "@/lib/data";
+import { projects, slugify, type Project } from "@/lib/data";
 import { ArrowUpRight, Github, Code2, Trophy } from "lucide-react";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -91,7 +91,10 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
   const live = p.href && p.href !== "#" ? p.href : undefined;
 
   return (
-    <article className="proj-row grid items-center gap-8 border-t border-white/10 py-12 md:grid-cols-2 md:gap-14 md:py-16">
+    <article
+      id={slugify(p.title)}
+      className="proj-row scroll-mt-20 grid items-center gap-8 border-t border-white/10 py-12 md:grid-cols-2 md:gap-14 md:py-16"
+    >
       {/* Meta */}
       <div className={index % 2 === 1 ? "md:order-2" : ""}>
         <div className="flex flex-wrap items-center gap-3">

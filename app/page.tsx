@@ -8,6 +8,7 @@ import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import Passions from "@/components/sections/Passions";
+import Services from "@/components/sections/Services";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -24,6 +25,7 @@ export default function Page() {
       <Education />
       <Certifications />
       <Passions />
+      <Services />
       <Contact />
       <Footer />
     </main>

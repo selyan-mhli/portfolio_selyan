@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { ArrowUpRight, ArrowDown, FileText, Newspaper, Trophy } from "lucide-react";
+import { ArrowUpRight, ArrowDown, FileText, Newspaper, Trophy, Briefcase } from "lucide-react";
 
 const LEPARISIEN_URL =
   "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php";
@@ -10,6 +10,7 @@ const LEPARISIEN_URL =
 const badges = [
   { icon: Trophy, label: "Finaliste MégaWatt'UTT ×EDF", href: "#projects" },
   { icon: Newspaper, label: "Cité dans Le Parisien", href: LEPARISIEN_URL, external: true },
+  { icon: Briefcase, label: "Dispo freelance : sites web & IA", href: "#services" },
 ];
 
 function HeroPhoto() {

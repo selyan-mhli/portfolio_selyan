@@ -1,5 +1,15 @@
 export const SITE = "https://selyanmouhali.fr";
 
+/* Ancre URL propre à partir d'un titre (« MégaWatt'UTT Challenge » → "megawatt-utt-challenge") */
+export function slugify(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /* ------------------------------------------------------------------ */
 /* Startup — Privasee (Selyan est founder, ce n'est pas un projet)     */
 /* ------------------------------------------------------------------ */
@@ -216,7 +226,7 @@ export type Education = {
 
 export const education: Education[] = [
   {
-    title: "Diplôme d'Ingénieur — UTT",
+    title: "Diplôme d'Ingénieur UTT",
     period: "2024 – Présent · Troyes",
     desc: "Tronc commun ingénieur / cycle préparatoire. Maths, informatique, physique, gestion de projet et langues.",
     logo: "/scene/Logo_UTT_2018.svg.png",
@@ -228,7 +238,7 @@ export const education: Education[] = [
     logo: "/scene/logo-mariepila.png",
   },
   {
-    title: "Échange scolaire — Reynolds High School",
+    title: "Échange scolaire à Reynolds High School",
     period: "2023 · Victoria BC, Canada",
     desc: "Immersion anglophone complète, cours du système canadien et découverte culturelle.",
     logo: "/scene/logo-reynolds.png",
@@ -310,7 +320,7 @@ export const about = {
   hello: "Bonjour ! Je suis",
   name: "Selyan",
   desc: ", étudiant en deuxième année d'école d'ingénieur à l'Université de Technologie de Troyes et founder de Privasee. Curieux et rigoureux, je construis des produits — d'un DLP pour l'IA à des solutions primées en challenge industriel.",
-  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit.",
+  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit. En parallèle, j'accompagne entreprises et indépendants en freelance : sites web, IA et référencement.",
 };
 
 export const contact = {
@@ -319,7 +329,49 @@ export const contact = {
   github: "https://github.com/selyan-mhli",
   linkedin: "https://www.linkedin.com/in/selyanmouhali/",
   privasee: "https://privasee.fr",
+  // Cal.com : chemin public de l'événement (cal.com/<username>/<event>)
+  calLink: "selyan-mouhali/30min",
+  // Web3Forms : clé d'accès publique (web3forms.com — reçue par e-mail)
+  web3formsKey: "e3a85b59-2611-4bbf-ba43-bce0234b8378",
 };
+
+/* ------------------------------------------------------------------ */
+/* Services — offre freelance (sites, IA, SEO/GEO)                     */
+/* ------------------------------------------------------------------ */
+
+export type Service = {
+  title: string;
+  desc: string;
+  icon: "globe" | "graduation" | "compass" | "megaphone" | "search";
+};
+
+export const services: Service[] = [
+  {
+    title: "Création de sites web",
+    desc: "Sites vitrine, portfolios et e-commerce. Modernes, rapides, pensés pour convertir vos visiteurs en clients.",
+    icon: "globe",
+  },
+  {
+    title: "Introduction à l'IA en entreprise",
+    desc: "Sensibilisation et formation de vos équipes aux outils d'IA : ce qui existe, ce qui vous concerne, comment démarrer sans risque.",
+    icon: "graduation",
+  },
+  {
+    title: "Conseil en IA",
+    desc: "J'identifie vos cas d'usage concrets, je choisis les bons outils et j'automatise vos tâches répétitives. Sans jargon.",
+    icon: "compass",
+  },
+  {
+    title: "Marketing génératif",
+    desc: "Contenus, visuels et campagnes marketing produits avec l'IA : plus de volume, plus vite, dans votre ton de marque.",
+    icon: "megaphone",
+  },
+  {
+    title: "SEO / GEO",
+    desc: "Référencement Google (SEO) et visibilité dans les réponses des IA comme ChatGPT ou Perplexity (GEO). Être trouvé partout où l'on vous cherche.",
+    icon: "search",
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /* FAQ — visible + FAQPage schema (levier GEO : les IA citent ces blocs) */
@@ -389,6 +441,17 @@ export const jsonLd = {
         "Finaliste & Prix du public — MégaWatt'UTT Challenge (×EDF)",
         "Finaliste — Natran Challenge",
       ],
+      makesOffer: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: s.title,
+          description: s.desc,
+          provider: { "@id": `${SITE}/#selyan` },
+          areaServed: "France",
+          availableLanguage: ["fr", "en"],
+        },
+      })),
       sameAs: [
         "https://github.com/selyan-mhli",
         "https://www.linkedin.com/in/selyanmouhali/",
@@ -441,7 +504,8 @@ export const jsonLd = {
         { "@type": "ListItem", position: 2, name: "Privasee", item: `${SITE}/#privasee` },
         { "@type": "ListItem", position: 3, name: "Projets", item: `${SITE}/#projects` },
         { "@type": "ListItem", position: 4, name: "Presse", item: `${SITE}/#presse` },
-        { "@type": "ListItem", position: 5, name: "Contact", item: `${SITE}/#contact` },
+        { "@type": "ListItem", position: 5, name: "Services", item: `${SITE}/#services` },
+        { "@type": "ListItem", position: 6, name: "Contact", item: `${SITE}/#contact` },
       ],
     },
     {
