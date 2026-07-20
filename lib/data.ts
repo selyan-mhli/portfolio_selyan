@@ -320,8 +320,10 @@ export const contact = {
   linkedin: "https://www.linkedin.com/in/selyanmouhali/",
   privasee: "https://privasee.fr",
   // Cal.com : chemin public de l'événement (cal.com/<username>/<event>)
-  // TODO(Selyan) : vérifier que ce chemin correspond bien à ton compte
   calLink: "selyan-mouhali/30min",
+  // Web3Forms : clé d'accès publique (web3forms.com — reçue par e-mail)
+  // TODO(Selyan) : remplacer par ta vraie clé
+  web3formsKey: "REMPLACE_MOI",
 };
 
 /* ------------------------------------------------------------------ */
