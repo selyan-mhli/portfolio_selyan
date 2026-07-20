@@ -10,7 +10,7 @@ const LEPARISIEN_URL =
 const badges = [
   { icon: Trophy, label: "Finaliste MégaWatt'UTT ×EDF", href: "#projects" },
   { icon: Newspaper, label: "Cité dans Le Parisien", href: LEPARISIEN_URL, external: true },
-  { icon: Briefcase, label: "Dispo freelance — Sites web & IA", href: "#services" },
+  { icon: Briefcase, label: "Dispo freelance : sites web & IA", href: "#services" },
 ];
 
 function HeroPhoto() {

@@ -84,7 +84,7 @@ export default function Privazee() {
       ref={ref}
       className="relative py-28 md:py-36 px-6 md:px-12 lg:px-20"
     >
-      <div className="mono-label mb-6 pz-reveal">02 / Ma startup</div>
+      <div className="mono-label mb-6 pz-reveal">01 / Ma startup</div>
 
       <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-16 lg:items-center">
         <div>

@@ -73,7 +73,7 @@ export default function Stack() {
   return (
     <section id="stack" className="relative py-32 overflow-hidden">
       <div className="px-6 md:px-12 lg:px-20">
-        <div className="mono-label mb-6">05 / Stack &amp; Compétences</div>
+        <div className="mono-label mb-6">04 / Stack &amp; Compétences</div>
         <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">
           Les outils que je maîtrise.
         </h2>

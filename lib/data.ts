@@ -1,5 +1,15 @@
 export const SITE = "https://selyanmouhali.fr";
 
+/* Ancre URL propre à partir d'un titre (« MégaWatt'UTT Challenge » → "megawatt-utt-challenge") */
+export function slugify(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 /* ------------------------------------------------------------------ */
 /* Startup — Privasee (Selyan est founder, ce n'est pas un projet)     */
 /* ------------------------------------------------------------------ */
@@ -216,7 +226,7 @@ export type Education = {
 
 export const education: Education[] = [
   {
-    title: "Diplôme d'Ingénieur — UTT",
+    title: "Diplôme d'Ingénieur UTT",
     period: "2024 – Présent · Troyes",
     desc: "Tronc commun ingénieur / cycle préparatoire. Maths, informatique, physique, gestion de projet et langues.",
     logo: "/scene/Logo_UTT_2018.svg.png",
@@ -228,7 +238,7 @@ export const education: Education[] = [
     logo: "/scene/logo-mariepila.png",
   },
   {
-    title: "Échange scolaire — Reynolds High School",
+    title: "Échange scolaire à Reynolds High School",
     period: "2023 · Victoria BC, Canada",
     desc: "Immersion anglophone complète, cours du système canadien et découverte culturelle.",
     logo: "/scene/logo-reynolds.png",
@@ -491,12 +501,11 @@ export const jsonLd = {
       "@id": `${SITE}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
-        { "@type": "ListItem", position: 2, name: "À propos", item: `${SITE}/#about` },
-        { "@type": "ListItem", position: 3, name: "Privasee", item: `${SITE}/#privasee` },
-        { "@type": "ListItem", position: 4, name: "Projets", item: `${SITE}/#projects` },
-        { "@type": "ListItem", position: 5, name: "Presse", item: `${SITE}/#presse` },
-        { "@type": "ListItem", position: 6, name: "Services", item: `${SITE}/#services` },
-        { "@type": "ListItem", position: 7, name: "Contact", item: `${SITE}/#contact` },
+        { "@type": "ListItem", position: 2, name: "Privasee", item: `${SITE}/#privasee` },
+        { "@type": "ListItem", position: 3, name: "Projets", item: `${SITE}/#projects` },
+        { "@type": "ListItem", position: 4, name: "Presse", item: `${SITE}/#presse` },
+        { "@type": "ListItem", position: 5, name: "Services", item: `${SITE}/#services` },
+        { "@type": "ListItem", position: 6, name: "Contact", item: `${SITE}/#contact` },
       ],
     },
     {

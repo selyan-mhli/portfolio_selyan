@@ -3,7 +3,7 @@ import { passions } from "@/lib/data";
 export default function Passions() {
   return (
     <section id="passions" className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">09 / Passions</div>
+      <div className="mono-label mb-6">08 / Passions</div>
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">Au-delà du code.</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {passions.map((p) => (

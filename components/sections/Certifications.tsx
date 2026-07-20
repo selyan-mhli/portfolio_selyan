@@ -49,7 +49,7 @@ export default function Certifications() {
 
   return (
     <section id="certifications" ref={ref} className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="cert-kicker mono-label mb-6">08 / Certifications</div>
+      <div className="cert-kicker mono-label mb-6">07 / Certifications</div>
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">Certifications.</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {certifications.map((c, i) => {

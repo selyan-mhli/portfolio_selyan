@@ -24,7 +24,7 @@ export default function Press() {
 
   return (
     <section id="presse" className="relative py-28 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-8">04 / Presse</div>
+      <div className="mono-label mb-8">03 / Presse</div>
 
       <div className="border-t border-white/10">
         <a
