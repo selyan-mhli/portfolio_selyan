@@ -322,8 +322,7 @@ export const contact = {
   // Cal.com : chemin public de l'événement (cal.com/<username>/<event>)
   calLink: "selyan-mouhali/30min",
   // Web3Forms : clé d'accès publique (web3forms.com — reçue par e-mail)
-  // TODO(Selyan) : remplacer par ta vraie clé
-  web3formsKey: "REMPLACE_MOI",
+  web3formsKey: "e3a85b59-2611-4bbf-ba43-bce0234b8378",
 };
 
 /* ------------------------------------------------------------------ */
