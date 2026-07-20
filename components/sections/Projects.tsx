@@ -185,7 +185,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="relative py-28 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">02 / Projets &amp; concours</div>
+      <div className="mono-label mb-6">03 / Projets &amp; concours</div>
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-4">Ce que je construis.</h2>
       <p className="max-w-xl text-white/55 mb-4">
         Des concours industriels primés aux projets de développement : du concret,

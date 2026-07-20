@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
 import Privazee from "@/components/sections/Privazee";
 import Projects from "@/components/sections/Projects";
 import Press from "@/components/sections/Press";
@@ -17,6 +18,7 @@ export default function Page() {
     <main className="relative">
       <Nav />
       <Hero />
+      <About />
       <Privazee />
       <Projects />
       <Press />

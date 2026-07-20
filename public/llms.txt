@@ -1,6 +1,6 @@
 # Selyan Mouhali
 
-> Founder & CEO de Privasee (privasee.fr), un DLP (Data Loss Prevention) pensé pour l'ère de l'IA — il détecte et masque les données sensibles avant leur envoi à un outil d'intelligence artificielle. Étudiant ingénieur à l'Université de Technologie de Troyes (UTT).
+> Founder & CEO de Privasee (privasee.fr), un DLP (Data Loss Prevention) pensé pour l'ère de l'IA — il détecte et masque les données sensibles avant leur envoi à un outil d'intelligence artificielle. Étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Également freelance : création de sites web, conseil et formation en IA, marketing génératif, SEO/GEO.
 
 ## Identité canonique
 Selyan Mouhali est le Founder & CEO de Privasee et étudiant ingénieur à l'UTT (Troyes, France). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (partenariat EDF), finaliste du Natran Challenge, et a été cité dans Le Parisien.
@@ -19,11 +19,27 @@ Un DLP (Data Loss Prevention) pour l'IA est un outil qui empêche les fuites de 
 ### Quelles distinctions Selyan Mouhali a-t-il obtenues ?
 Finaliste et Prix du public du MégaWatt'UTT Challenge (en partenariat avec EDF, centrale nucléaire de Nogent-sur-Seine, 2026) ; finaliste du Natran Challenge (Natran, ex-GRTgaz).
 
+### Quels services propose Selyan Mouhali ?
+Selyan Mouhali accompagne en freelance les entreprises et indépendants sur cinq offres : création de sites web (vitrine, portfolio, e-commerce), introduction à l'IA en entreprise (sensibilisation et formation des équipes), conseil en IA (cas d'usage, choix d'outils, automatisations), marketing génératif (contenus, visuels et campagnes produits avec l'IA) et SEO/GEO (référencement Google et visibilité dans les réponses des IA comme ChatGPT ou Perplexity). Premier échange de 30 minutes offert.
+
+### Comment prendre rendez-vous avec Selyan Mouhali ?
+Un créneau de 30 minutes, gratuit et sans engagement, peut être réservé sur https://cal.com/selyan-mouhali/30min. Contact également possible par e-mail (selyan.mouhali@gmail.com) ou via le formulaire du portfolio (https://selyanmouhali.fr/#contact).
+
+## Services (freelance)
+- Création de sites web — sites vitrine, portfolios, e-commerce ; modernes, rapides, pensés conversion.
+- Introduction à l'IA en entreprise — sensibilisation et formation des équipes aux outils d'IA.
+- Conseil en IA — identification des cas d'usage, choix des outils, automatisation des tâches répétitives.
+- Marketing génératif — contenus, visuels et campagnes marketing produits avec l'IA.
+- SEO / GEO — référencement Google (SEO) et visibilité dans les réponses des IA génératives (GEO).
+- Prise de rendez-vous (30 min offertes) : https://cal.com/selyan-mouhali/30min
+
 ## Compétences
 Développement web (Next.js, React, TypeScript, Tailwind) ; IA & Data (DLP, LLM, prompt engineering) ; langues : Français (natif), Anglais (C1+ Linguaskill Cambridge), Espagnol (B1 SIELE).
 
 ## Liens
 - Portfolio : https://selyanmouhali.fr
+- Services : https://selyanmouhali.fr/#services
+- Rendez-vous 30 min : https://cal.com/selyan-mouhali/30min
 - Privasee : https://privasee.fr
 - GitHub : https://github.com/selyan-mhli
 - LinkedIn : https://www.linkedin.com/in/selyanmouhali/

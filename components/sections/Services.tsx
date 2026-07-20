@@ -86,7 +86,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">09 / Services</div>
+      <div className="mono-label mb-6">10 / Services</div>
       <h2 className="serif-display text-[clamp(2.5rem,8vw,7rem)] mb-6">
         Je peux aussi vous aider
       </h2>

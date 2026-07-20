@@ -310,7 +310,7 @@ export const about = {
   hello: "Bonjour ! Je suis",
   name: "Selyan",
   desc: ", étudiant en deuxième année d'école d'ingénieur à l'Université de Technologie de Troyes et founder de Privasee. Curieux et rigoureux, je construis des produits — d'un DLP pour l'IA à des solutions primées en challenge industriel.",
-  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit.",
+  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit. En parallèle, j'accompagne entreprises et indépendants en freelance : sites web, IA et référencement.",
 };
 
 export const contact = {
@@ -491,11 +491,12 @@ export const jsonLd = {
       "@id": `${SITE}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
-        { "@type": "ListItem", position: 2, name: "Privasee", item: `${SITE}/#privasee` },
-        { "@type": "ListItem", position: 3, name: "Projets", item: `${SITE}/#projects` },
-        { "@type": "ListItem", position: 4, name: "Presse", item: `${SITE}/#presse` },
-        { "@type": "ListItem", position: 5, name: "Services", item: `${SITE}/#services` },
-        { "@type": "ListItem", position: 6, name: "Contact", item: `${SITE}/#contact` },
+        { "@type": "ListItem", position: 2, name: "À propos", item: `${SITE}/#about` },
+        { "@type": "ListItem", position: 3, name: "Privasee", item: `${SITE}/#privasee` },
+        { "@type": "ListItem", position: 4, name: "Projets", item: `${SITE}/#projects` },
+        { "@type": "ListItem", position: 5, name: "Presse", item: `${SITE}/#presse` },
+        { "@type": "ListItem", position: 6, name: "Services", item: `${SITE}/#services` },
+        { "@type": "ListItem", position: 7, name: "Contact", item: `${SITE}/#contact` },
       ],
     },
     {
