@@ -13,18 +13,11 @@ export default function Contact() {
       </h2>
       <div className="grid md:grid-cols-2 gap-10 items-start">
         <div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 mb-4">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
             <div className="mono-label !text-accent mb-1">Disponible</div>
             <h3 className="text-xl mb-2">Stage ingénieur — Septembre 2027</h3>
             <p className="text-white/60 text-sm">
               Stage de 4 à 6 mois en ingénierie, développement ou gestion de projet technique.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="mono-label mb-1">Aussi ouvert</div>
-            <h3 className="text-xl mb-2">Summer Programme — Été 2026 / 2027</h3>
-            <p className="text-white/60 text-sm">
-              Programmes d'été en entreprise, en France ou à l'international.
             </p>
           </div>
           <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
