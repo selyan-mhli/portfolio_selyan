@@ -51,6 +51,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Blaze",
+    year: "2026",
+    featured: true,
+    kind: "concours",
+    award: "Paris Gemma 4 Hackathon",
+    problem:
+      "Transformer les échanges radio des pompiers en informations structurées, en plans tactiques vérifiés et en ordres soumis à la validation du commandant.",
+    description:
+      "Prototype conçu pour le Paris Gemma 4 Hackathon à 42 Paris : cinq agents Gemma exécutés localement analysent les messages radio, confrontent le plan aux risques et préparent les ordres de dispatch. Le système reste entièrement local, sans appel à un LLM cloud.",
+    stack: ["Gemma 4", "Agents IA", "IA locale", "Next.js", "Sécurité civile"],
+    href: "https://blaze-live.aminssutt.fr/",
+    github: "https://github.com/aminssutt/Blaze",
+  },
+  {
     title: "MégaWatt'UTT Challenge",
     year: "2026",
     featured: true,
