@@ -7,6 +7,7 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   transpilePackages: ["three"],
   async headers() {
