@@ -88,12 +88,21 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub mt-7 max-w-xl text-lg leading-relaxed text-white/65">
-            Étudiant ingénieur à l'UTT et founder de{" "}
+            Étudiant ingénieur à l'UTT, founder de{" "}
             <a
-              href="#privasee"
+              href="#startups"
               className="text-sand underline decoration-accent/50 underline-offset-4 hover:decoration-accent"
             >
               Privasee
+            </a>{" "}
+            et d'
+            <a
+              href="https://akselai.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sand underline decoration-accent/50 underline-offset-4 hover:decoration-accent"
+            >
+              Aksel AI
             </a>
             . Je construis des produits concrets, du DLP pour l'IA aux solutions
             primées en challenge industriel.
@@ -124,10 +133,10 @@ export default function Hero() {
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href="#privasee"
+              href="#startups"
               className="hero-cta inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-ink transition-colors hover:bg-white"
             >
-              Découvrir Privasee <ArrowUpRight size={16} />
+              Découvrir mes startups <ArrowUpRight size={16} />
             </a>
             <a
               href="#projects"

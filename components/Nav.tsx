@@ -11,7 +11,7 @@ type NavLink = {
 };
 
 const links: NavLink[] = [
-  { href: "#privasee", label: "Privasee" },
+  { href: "#startups", label: "Startups" },
   {
     href: "#projects",
     label: "Projets",

@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${SITE}/#privasee`,
+      url: `${SITE}/#startups`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,

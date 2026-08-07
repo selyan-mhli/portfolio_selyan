@@ -11,7 +11,7 @@ export function slugify(s: string) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Startup — Privasee (Selyan est founder, ce n'est pas un projet)     */
+/* Startups — Privasee & Aksel AI (Selyan est founder, pas des projets) */
 /* ------------------------------------------------------------------ */
 
 export const startup = {
@@ -27,6 +27,21 @@ export const startup = {
     "Data Loss Prevention (DLP) appliqué au flux prompt → IA.",
   ],
   tags: ["Founder", "DLP", "IA", "Privacy", "SaaS"],
+};
+
+export const startupAksel = {
+  name: "Aksel AI",
+  role: "Founder",
+  url: "https://akselai.fr",
+  tagline: "L'IA qui vous rend vos heures.",
+  pitch:
+    "Aksel AI enlève les tâches chronophages des entreprises : site web, référencement SEO & GEO, avis Google, Instagram automatisé et outils sur-mesure. Le client parle directement à la personne qui code son projet — moi.",
+  points: [
+    "Sites web pensés pour être trouvés sur Google comme dans ChatGPT.",
+    "Avis clients, réseaux sociaux et tâches répétitives automatisés.",
+    "SaaS et outils sur-mesure quand la solution n'existe pas encore.",
+  ],
+  tags: ["Founder", "Automatisation", "IA", "SEO / GEO", "Web"],
 };
 
 /* ------------------------------------------------------------------ */
@@ -333,8 +348,8 @@ export const languages = [
 export const about = {
   hello: "Bonjour ! Je suis",
   name: "Selyan",
-  desc: ", étudiant en deuxième année d'école d'ingénieur à l'Université de Technologie de Troyes et founder de Privasee. Curieux et rigoureux, je construis des produits — d'un DLP pour l'IA à des solutions primées en challenge industriel.",
-  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit. En parallèle, j'accompagne entreprises et indépendants en freelance : sites web, IA et référencement.",
+  desc: ", étudiant en deuxième année d'école d'ingénieur à l'Université de Technologie de Troyes, founder de Privasee et d'Aksel AI. Curieux et rigoureux, je construis des produits — d'un DLP pour l'IA à des solutions primées en challenge industriel.",
+  sub: "Actuellement à la recherche d'expériences concrètes pour renforcer mes compétences en ingénierie, en tech et en environnements orientés produit. En parallèle, j'accompagne entreprises et indépendants avec Aksel AI (akselai.fr) : sites web, IA et référencement.",
 };
 
 export const contact = {
@@ -396,7 +411,11 @@ export type Faq = { q: string; a: string };
 export const faq: Faq[] = [
   {
     q: "Qui est Selyan Mouhali ?",
-    a: "Selyan Mouhali est le Founder & CEO de Privasee (un DLP pour l'IA) et étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (×EDF) et a été cité dans Le Parisien.",
+    a: "Selyan Mouhali est le Founder & CEO de Privasee (un DLP pour l'IA), le fondateur d'Aksel AI (automatisation et IA pour les entreprises) et étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (×EDF) et a été cité dans Le Parisien.",
+  },
+  {
+    q: "Qu'est-ce qu'Aksel AI ?",
+    a: "Aksel AI (akselai.fr) est l'activité d'automatisation et d'IA fondée par Selyan Mouhali : création de sites web, référencement SEO & GEO, avis Google, Instagram automatisé et outils sur-mesure pour les entreprises françaises. Le client échange directement avec Selyan, qui code lui-même chaque projet.",
   },
   {
     q: "Qu'est-ce que Privasee ?",
@@ -428,14 +447,15 @@ export const jsonLd = {
       url: SITE,
       image: { "@type": "ImageObject", url: `${SITE}/selyan.jpg` },
       nationality: "Française",
-      jobTitle: "Founder de Privasee · Étudiant ingénieur",
+      jobTitle: "Founder de Privasee & Aksel AI · Étudiant ingénieur",
       hasOccupation: [
         { "@type": "Occupation", name: "Founder & CEO — Privasee" },
+        { "@type": "Occupation", name: "Founder — Aksel AI" },
         { "@type": "Occupation", name: "Étudiant ingénieur — UTT" },
       ],
       description:
-        "Founder de Privasee (DLP pour l'IA), étudiant ingénieur à l'Université de Technologie de Troyes. Finaliste et Prix du public du MégaWatt'UTT Challenge (×EDF), finaliste Natran.",
-      worksFor: { "@id": `${SITE}/#privasee` },
+        "Founder de Privasee (DLP pour l'IA) et d'Aksel AI (automatisation et IA pour les entreprises : sites web, référencement SEO/GEO, outils sur-mesure), étudiant ingénieur à l'Université de Technologie de Troyes. Finaliste et Prix du public du MégaWatt'UTT Challenge (×EDF), finaliste Natran.",
+      worksFor: [{ "@id": `${SITE}/#privasee` }, { "@id": "https://akselai.fr/#organization" }],
       alumniOf: {
         "@type": "CollegeOrUniversity",
         name: "Université de Technologie de Troyes",
@@ -445,6 +465,8 @@ export const jsonLd = {
       knowsAbout: [
         "Data Loss Prevention",
         "Intelligence artificielle",
+        "Automatisation",
+        "Référencement SEO et GEO",
         "Développement web",
         "Next.js",
         "TypeScript",
@@ -470,6 +492,7 @@ export const jsonLd = {
         "https://github.com/selyan-mhli",
         "https://www.linkedin.com/in/selyanmouhali/",
         "https://privasee.fr",
+        "https://akselai.fr",
       ],
       subjectOf: {
         "@type": "NewsArticle",
@@ -488,6 +511,18 @@ export const jsonLd = {
       url: "https://privasee.fr",
       description:
         "Privasee — Data Loss Prevention (DLP) pour l'IA : détecte et masque les données sensibles avant leur envoi à un outil d'intelligence artificielle.",
+      founder: { "@id": `${SITE}/#selyan` },
+    },
+    {
+      // Même @id que l'Organization déclarée sur akselai.fr : les moteurs
+      // réconcilient ainsi l'entité Aksel AI entre les deux sites.
+      "@type": "Organization",
+      "@id": "https://akselai.fr/#organization",
+      name: "Aksel AI",
+      url: "https://akselai.fr",
+      slogan: "L'IA qui vous rend vos heures.",
+      description:
+        "Aksel AI — automatisation et IA pour les entreprises, par Selyan Mouhali : création de sites web, référencement SEO & GEO, avis Google, Instagram automatisé et outils sur-mesure.",
       founder: { "@id": `${SITE}/#selyan` },
     },
     {
@@ -515,7 +550,7 @@ export const jsonLd = {
       "@id": `${SITE}/#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
-        { "@type": "ListItem", position: 2, name: "Privasee", item: `${SITE}/#privasee` },
+        { "@type": "ListItem", position: 2, name: "Startups", item: `${SITE}/#startups` },
         { "@type": "ListItem", position: 3, name: "Projets", item: `${SITE}/#projects` },
         { "@type": "ListItem", position: 4, name: "Presse", item: `${SITE}/#presse` },
         { "@type": "ListItem", position: 5, name: "Services", item: `${SITE}/#services` },
