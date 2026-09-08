@@ -24,7 +24,8 @@ export default function Press() {
 
   return (
     <section id="presse" className="relative py-28 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="sec-rule mb-8" aria-hidden="true" />
+      <div className="sec-rule mb-6" aria-hidden="true" />
+      <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-10">Dans la presse.</h2>
 
       <div className="border-t border-white/10">
         <a

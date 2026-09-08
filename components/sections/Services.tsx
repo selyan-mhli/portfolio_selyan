@@ -52,7 +52,7 @@ export default function Services() {
           );
         })}
 
-        <div className="rounded-2xl border border-accent/40 bg-accent/[0.06] p-6 flex flex-col justify-between">
+        <div className="lg:col-span-3 rounded-2xl border border-accent/40 bg-accent/[0.06] p-6 flex flex-col justify-between">
           <div>
             <Sparkles size={22} className="text-accent mb-4" aria-hidden="true" />
             <h3 className="text-lg mb-2">Un projet en tête ?</h3>
