@@ -1,3 +1,15 @@
+/* Hallmark · redesign · 2026-09-08
+ * macrostructure: Long Document (rythme retravaille, structure preservee)
+ * tone: technique et assume · anchor hue: ambre #f7a233
+ * section-heads: 3 voix — label ancre (4) / regle 40px (6) / terminal (1).
+ *   Remplace 10 eyebrows numerotees 01..10 : un portfolio n'est pas une sequence.
+ * theme: systeme existant du projet, PRESERVE (pas de re-pick)
+ *   paper #0a0a0b · sand #ecebe6 · accent #f7a233
+ *   Bricolage Grotesque + Inter + JetBrains Mono
+ * grid: symetrie 3 colonnes cassee sur Services et Passions (1re carte en span 2)
+ * motion: prefers-reduced-motion garde sur Lenis, curseur suiveur, rotation R3F
+ * enrichment: none — la photo hero et la video demo etaient deja la
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
