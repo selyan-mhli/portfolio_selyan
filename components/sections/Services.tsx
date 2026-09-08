@@ -21,7 +21,7 @@ const icons: Record<Service["icon"], typeof Globe> = {
 export default function Services() {
   return (
     <section id="services" className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">09 / Services</div>
+      <div className="sec-label mb-6">Services</div>
       <h2 className="serif-display text-[clamp(2.5rem,8vw,7rem)] mb-6">
         Je peux aussi vous aider
       </h2>
@@ -32,12 +32,14 @@ export default function Services() {
       </p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-        {services.map((s) => {
+        {services.map((s, i) => {
           const Icon = icons[s.icon];
           return (
             <div
               key={s.title}
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 transition-colors"
+              className={`group rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 transition-colors ${
+                i === 0 ? "lg:col-span-2 lg:p-8" : ""
+              }`}
             >
               <Icon
                 size={22}

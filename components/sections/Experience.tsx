@@ -64,7 +64,7 @@ export default function Experience() {
 
   return (
     <section id="experience" ref={ref} className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="exp-kicker mono-label mb-6">05 / Parcours</div>
+      <div className="exp-kicker sec-rule mb-6" aria-hidden="true" />
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-4">Parcours.</h2>
       <p className="max-w-xl text-white/55 mb-14">
         L'essentiel — le reste en bas, pour le contexte.

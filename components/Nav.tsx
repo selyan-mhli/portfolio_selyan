@@ -55,7 +55,7 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
           scrolled
             ? "bg-black/55 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
@@ -77,12 +77,12 @@ export default function Nav() {
             </span>
             <span className="relative w-4 h-4">
               <Menu
-                className={`absolute inset-0 w-4 h-4 transition-all duration-200 ${
+                className={`absolute inset-0 w-4 h-4 transition-[opacity,transform] duration-200 ${
                   open ? "opacity-0 rotate-45 scale-50" : "opacity-100"
                 }`}
               />
               <X
-                className={`absolute inset-0 w-4 h-4 transition-all duration-200 ${
+                className={`absolute inset-0 w-4 h-4 transition-[opacity,transform] duration-200 ${
                   open ? "opacity-100" : "opacity-0 -rotate-45 scale-50"
                 }`}
               />
@@ -152,7 +152,7 @@ export default function Nav() {
 
                 {l.children && (
                   <div
-                    className={`grid transition-all duration-400 ease-out ${
+                    className={`grid transition-[grid-template-rows,opacity] duration-400 ease-out ${
                       expanded ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
                     }`}
                   >

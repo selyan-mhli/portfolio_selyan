@@ -26,12 +26,46 @@ html, body {
   background: var(--ink);
   color: var(--sand);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip, pas hidden : hidden cree un conteneur de defilement qui casse position:sticky chez les descendants */
 }
 
 ::selection {
   background: var(--accent);
   color: var(--accent-ink);
+}
+
+/* Ouverture de section — trois voix, pas une.
+   .sec-label : la section s'annonce (ancres : startups, projets, services, contact).
+   .sec-rule  : la section ouvre sur une marque, le titre porte seul (sections d'appui).
+   La numerotation 01..10 a ete retiree : les sections d'un portfolio ne sont pas
+   une sequence, donc le numero n'encodait rien de vrai. */
+.sec-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sec-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+/* Mouvement : le site empile Lenis, GSAP, framer-motion, une scene three.js en
+   rotation et un curseur suiveur. Sans cette garde, ce cumul est intenable pour
+   les personnes sensibles au mouvement vestibulaire. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
 }
 
 /* Monospace utility label — the technical "engineer" voice */

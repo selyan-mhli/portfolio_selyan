@@ -44,13 +44,17 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // fromTo et non from : reactStrictMode monte le composant deux fois en dev.
+      // Avec .from(), le second montage lit l'etat DEJA translate par le premier et
+      // le prend pour cible — l'animation joue de 108% vers 108% et le H1 ne parait
+      // jamais. Expliciter l'arrivee rend l'intro idempotente.
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-      tl.from(".hero-eyebrow", { y: 16, opacity: 0, duration: 0.7, delay: 0.1 })
-        .from(".hero-line", { yPercent: 108, duration: 1.1, stagger: 0.1 }, "-=0.35")
-        .from(".hero-sub", { y: 20, opacity: 0, duration: 0.8 }, "-=0.6")
-        .from(".hero-badge", { y: 14, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=0.5")
-        .from(".hero-cta", { y: 16, opacity: 0, duration: 0.6, stagger: 0.07 }, "-=0.4")
-        .from(".hero-photo", { opacity: 0, scale: 0.98, duration: 1 }, "-=1");
+      tl.fromTo(".hero-eyebrow", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 0.1 })
+        .fromTo(".hero-line", { yPercent: 108 }, { yPercent: 0, duration: 1.1, stagger: 0.1 }, "-=0.35")
+        .fromTo(".hero-sub", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.6")
+        .fromTo(".hero-badge", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, "-=0.5")
+        .fromTo(".hero-cta", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.07 }, "-=0.4")
+        .fromTo(".hero-photo", { opacity: 0, scale: 0.98 }, { opacity: 1, scale: 1, duration: 1 }, "-=1");
     }, ref);
     return () => ctx.revert();
   }, []);

@@ -76,7 +76,7 @@ function ContactForm() {
 export default function Contact() {
   return (
     <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">10 / Contact</div>
+      <div className="sec-label mb-6">Contact</div>
       <h2 className="serif-display text-[clamp(2.5rem,8vw,7rem)] mb-10">
         On construit ensemble ?
       </h2>
