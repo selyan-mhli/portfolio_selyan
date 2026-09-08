@@ -49,12 +49,11 @@ function Preview({ p }: { p: Project }) {
 
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-surface">
-      {/* Browser chrome */}
-      <div className="absolute inset-x-0 top-0 z-10 flex items-center gap-1.5 border-b border-white/10 bg-black/50 px-4 py-2.5 backdrop-blur">
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="mono-label ml-3 truncate !text-[10px] !text-white/40">
+      {/* Legende de source. Les trois pastilles de navigateur ont ete retirees :
+          le navigateur du visiteur fournit deja sa vraie chrome, la redessiner est
+          un costume. Le domaine, lui, est une information — il dit ou mene le lien. */}
+      <div className="absolute inset-x-0 top-0 z-10 flex items-center border-b border-white/10 bg-black/50 px-4 py-2.5 backdrop-blur">
+        <span className="mono-label truncate !text-[10px] !text-white/40">
           {live ? new URL(live).host : p.github ? "github.com" : "aperçu"}
         </span>
       </div>

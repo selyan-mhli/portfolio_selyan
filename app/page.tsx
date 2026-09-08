@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/sections/Hero";
-import Privazee from "@/components/sections/Privazee";
+import Privasee from "@/components/sections/Privasee";
 import Projects from "@/components/sections/Projects";
 import Press from "@/components/sections/Press";
 import Stack from "@/components/sections/Stack";
@@ -17,7 +17,7 @@ export default function Page() {
     <main className="relative">
       <Nav />
       <Hero />
-      <Privazee />
+      <Privasee />
       <Projects />
       <Press />
       <Stack />

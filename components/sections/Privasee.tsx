@@ -26,12 +26,11 @@ function DemoVideo() {
 
   return (
     <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-surface">
-      {/* chrome navigateur */}
-      <div className="flex items-center gap-1.5 border-b border-white/10 bg-black/40 px-4 py-2.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="mono-label ml-3 !text-[10px] !text-white/40">
+      {/* Legende de la demo. Pastilles de navigateur retirees : redessiner une
+          chrome que le navigateur du visiteur fournit deja est un costume. Le
+          libelle, lui, dit ce qu'on regarde. */}
+      <div className="flex items-center border-b border-white/10 bg-black/40 px-4 py-2.5">
+        <span className="mono-label !text-[10px] !text-white/40">
           Démo — extension Privasee
         </span>
       </div>
@@ -61,7 +60,7 @@ function DemoVideo() {
   );
 }
 
-export default function Privazee() {
+export default function Privasee() {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
