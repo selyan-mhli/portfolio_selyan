@@ -6,7 +6,7 @@ export default function StickyMobileCTA() {
   return (
     <div className="md:hidden fixed bottom-3 left-3 right-3 z-40 flex gap-2">
       <a
-        href="#contact"
+        href="/#contact"
         className="flex-1 flex items-center justify-center gap-2 rounded-full bg-accent text-ink py-3 text-sm font-medium"
       >
         <Mail size={16} /> Contact

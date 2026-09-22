@@ -12,7 +12,10 @@ export default function Footer() {
         >
           privasee.fr ↗
         </a>
-        <a href="#hero" className="hover:text-accent transition-colors">
+        <a href="/confidentialite" className="hover:text-accent transition-colors">
+          Confidentialité
+        </a>
+        <a href="/#hero" className="hover:text-accent transition-colors">
           Retour en haut ↑
         </a>
       </div>
