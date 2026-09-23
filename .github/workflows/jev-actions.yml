@@ -1,0 +1,63 @@
+# Modèle jev pour un site dont le dépôt est PUBLIC (ex. portfolio). GitHub n'autorise
+# l'accès aux actions d'un dépôt privé que depuis des dépôts privés : on clone donc
+# jev-seo-geo avec un jeton en lecture seule, puis on utilise l'action en chemin local.
+#
+# Réglages du dépôt du site (Settings → Secrets and variables → Actions) :
+#   - variable JEV_APP_ID          : identifiant de l'App GitHub « jev » ;
+#   - secret   JEV_APP_PRIVATE_KEY : clé privée (.pem) de cette App ;
+#   - secret   JEV_REPO_TOKEN      : jeton fine-grained limité au dépôt selyan-mhli/jev-seo-geo,
+#                                    permission « Contents: Read-only », rien d'autre.
+# L'App « jev » pousse, ouvre la PR et pose le label ; GITHUB_TOKEN ne sert qu'au checkout.
+# Le site est cloné dans `site/` et jev dans `jev/` : le code de jev reste hors du
+# dossier du site (pas de pollution du lint, du build ni du commit).
+name: jev — corrections SEO
+
+on:
+  repository_dispatch:
+    types: [jev-actions]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jev-actions-${{ github.event.client_payload.request_id }}
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.JEV_APP_ID }}
+          private-key: ${{ secrets.JEV_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.site.base_branch }}
+          path: site
+          persist-credentials: false
+
+      - uses: actions/checkout@v4
+        with:
+          repository: selyan-mhli/jev-seo-geo
+          ref: main
+          token: ${{ secrets.JEV_REPO_TOKEN }}
+          path: jev
+          persist-credentials: false
+
+      - id: jev
+        uses: ./jev/packages/site-actions
+        with:
+          payload: ${{ toJSON(github.event.client_payload) }}
+          github_token: ${{ steps.app-token.outputs.token }}
+          root: site
+
+      - name: Pull request ouverte
+        if: always()
+        env:
+          PR_URL: ${{ steps.jev.outputs.pr_url }}
+        run: |
+          echo "PR jev : ${PR_URL:-aucune}"
