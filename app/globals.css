@@ -4,10 +4,10 @@
 
 :root {
   /* Type — back-compat: .serif-display now resolves to the display grotesque */
-  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", "Inter Variable", system-ui, sans-serif;
   --font-serif: var(--font-display);
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 
   /* Color — near-black + a single amber (energy) accent */
   --ink: #0a0a0b;
