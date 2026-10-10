@@ -43,6 +43,9 @@ export default function Hero() {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Mouvement réduit : aucune timeline, le contenu reste visible tel quel.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
       tl.from(".hero-eyebrow", { y: 16, opacity: 0, duration: 0.7, delay: 0.1 })

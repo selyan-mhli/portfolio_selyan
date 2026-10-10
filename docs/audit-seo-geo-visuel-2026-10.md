@@ -159,3 +159,12 @@ Compte Hallmark : **1 critique · 5 majeurs · 5 mineurs**.
 | 10 | Pages projet dédiées (contenu réel fourni par Selyan) | `app/projets/[slug]` | Sitemap + indexation dans la Search Console |
 
 Les points 1 à 6 sont rapides et indépendants ; les points 9 et 10 demandent des choix de contenu.
+
+## Suivi
+
+- 11/10/2026 — priorités 1, 3 et 5 corrigées sur la branche `codex/portfolio-press-previews-audit` :
+  - **1 (mouvement réduit)** : cause confirmée par expérience. La règle globale `transition-duration: 0.01ms` activait `transition: all` sur chaque élément, et GSAP capturait une opacité en cours de transition (≈ 0) comme valeur finale.
+    - Correctifs : `transition: none` dans le bloc `prefers-reduced-motion` de `app/globals.css`, et timeline du hero sautée en mouvement réduit.
+    - Vérifié sous Playwright (375 et 1440 px, mouvement réduit et normal) : tous les éléments du hero sont opaques. Après défilement complet, le seul texte encore invisible est le menu fermé et l'indice « Voir le PDF » des certifications, qui n'apparaît qu'au survol (point mineur).
+  - **3** : `public/llms.txt` réécrit. Plus de Cal.com ; Aksel AI, les deux articles de presse et le stage de septembre 2027 sont ajoutés.
+  - **5** : `app/sitemap.ts` ne contient plus qu'une URL, avec une date de dernière modification fixe.
