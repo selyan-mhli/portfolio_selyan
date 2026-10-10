@@ -6,7 +6,7 @@
  * theme: systeme existant du projet, PRESERVE (pas de re-pick)
  *   paper #0a0a0b · sand #ecebe6 · accent #f7a233
  *   Bricolage Grotesque + Inter + JetBrains Mono
- * grid: symetrie 3 colonnes cassee sur Services et Passions (1re carte en span 2)
+ * services: section retiree (2026-10-11) — les offres vivent sur akselai.fr
  * motion: prefers-reduced-motion garde sur Lenis, curseur suiveur, rotation R3F
  * enrichment: none — la photo hero et la video demo etaient deja la
  */
@@ -47,7 +47,7 @@ html, body {
 }
 
 /* Ouverture de section — trois voix, pas une.
-   .sec-label : la section s'annonce (ancres : startups, projets, services, contact).
+   .sec-label : la section s'annonce (ancres : startups, projets, contact).
    .sec-rule  : la section ouvre sur une marque, le titre porte seul (sections d'appui).
    La numerotation 01..10 a ete retiree : les sections d'un portfolio ne sont pas
    une sequence, donc le numero n'encodait rien de vrai. */

@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { projects, slugify } from "@/lib/data";
 
 type NavLink = {
   href: string;
   label: string;
+  external?: boolean;
   children?: { href: string; label: string }[];
 };
 
@@ -22,7 +23,8 @@ const links: NavLink[] = [
   },
   { href: "#presse", label: "Presse" },
   { href: "#experience", label: "Parcours" },
-  { href: "#services", label: "Services" },
+  // Les offres entreprises vivent sur akselai.fr : pas de section Services ici.
+  { href: "https://akselai.fr", label: "Aksel AI", external: true },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -122,9 +124,13 @@ export default function Nav() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="serif-display text-4xl md:text-7xl text-white/85 hover:text-accent transition-colors text-center"
+                    {...(l.external && { target: "_blank", rel: "noopener noreferrer" })}
+                    className="serif-display inline-flex items-start gap-2 text-4xl md:text-7xl text-white/85 hover:text-accent transition-colors text-center"
                   >
                     {l.label}
+                    {l.external && (
+                      <ArrowUpRight className="mt-1 h-6 w-6 shrink-0 text-white/40 md:mt-3 md:h-10 md:w-10" aria-hidden="true" />
+                    )}
                   </a>
                   {l.children && (
                     <button

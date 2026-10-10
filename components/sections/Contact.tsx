@@ -47,9 +47,9 @@ function ContactForm() {
         <input required name="name" placeholder="Votre nom" autoComplete="name" className={inputCls} />
         <input required type="email" name="email" placeholder="Votre e-mail" autoComplete="email" className={inputCls} />
       </div>
-      <select required name="subject" defaultValue="Projet / Services" className={inputCls}>
-        <option>Projet / Services</option>
+      <select required name="subject" defaultValue="Stage / Recrutement" className={inputCls}>
         <option>Stage / Recrutement</option>
+        <option>Projet</option>
         <option>Autre</option>
       </select>
       <textarea required name="message" placeholder="Votre message…" rows={5} className={`${inputCls} resize-y`} />
