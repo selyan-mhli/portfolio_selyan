@@ -16,10 +16,10 @@
 
 :root {
   /* Type — back-compat: .serif-display now resolves to the display grotesque */
-  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", "Inter Variable", system-ui, sans-serif;
   --font-serif: var(--font-display);
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, monospace;
 
   /* Color — near-black + a single amber (energy) accent */
   --ink: #0a0a0b;
@@ -73,6 +73,11 @@ html, body {
   *, *::before, *::after {
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
+    /* Couleurs seulement. Une duree globale seule activerait "transition: all"
+       (opacite comprise) sur chaque element : GSAP lirait alors une opacite en
+       cours de transition (~0) comme valeur finale de ses .from(), et le contenu
+       resterait invisible. */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
     transition-duration: 120ms !important;
   }
   html { scroll-behavior: auto !important; }
@@ -118,13 +123,4 @@ html, body {
 
 .exp-dot {
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.7), 0 0 24px rgb(var(--accent-rgb) / 0.4);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

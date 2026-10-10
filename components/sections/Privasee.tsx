@@ -1,62 +1,41 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, ShieldCheck, Sparkles, Play, Pause } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Sparkles } from "lucide-react";
 import { startup, startupAksel } from "@/lib/data";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
-function DemoVideo() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [playing, setPlaying] = useState(true);
-
-  const toggle = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) {
-      void v.play();
-      setPlaying(true);
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
-  };
-
+function SitePreview({ name, url, image }: { name: string; url: string; image: string }) {
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-surface">
-      {/* Legende de la demo. Pastilles de navigateur retirees : redessiner une
-          chrome que le navigateur du visiteur fournit deja est un costume. Le
-          libelle, lui, dit ce qu'on regarde. */}
-      <div className="flex items-center border-b border-white/10 bg-black/40 px-4 py-2.5">
-        <span className="mono-label !text-[10px] !text-white/40">
-          Démo — extension Privasee
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Ouvrir la landing ${name}`}
+      className="group block overflow-hidden rounded-2xl border border-white/10 bg-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+    >
+      {/* Legende de source, comme les apercus de Projects : le domaine dit ou mene
+          le lien. Capture et non iframe : le site refuse d'etre encadre. */}
+      <div className="flex items-center border-b border-white/10 bg-black/50 px-4 py-2.5">
+        <span className="mono-label truncate !text-[10px] !text-white/40">
+          {new URL(url).host}
         </span>
+        <ArrowUpRight size={15} className="ml-auto shrink-0 text-white/40 transition-colors group-hover:text-accent" />
       </div>
-
-      {/* vidéo produit */}
-      <div className="group relative aspect-video w-full bg-black">
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          src="/privasee-demo.mp4"
-          poster="/privasee-demo.jpg"
-          loop
-          muted
-          playsInline
-          autoPlay
-          preload="metadata"
+      <div className="relative aspect-video w-full overflow-hidden bg-white">
+        <Image
+          src={image}
+          alt={`Capture de la page d'accueil ${name}`}
+          fill
+          sizes="(max-width: 1023px) 100vw, 48vw"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
         />
-        <button
-          onClick={toggle}
-          aria-label={playing ? "Mettre en pause" : "Lire"}
-          className="absolute bottom-3 right-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur transition-colors hover:bg-black/80"
-        >
-          {playing ? <Pause size={16} fill="currentColor" /> : <Play size={16} fill="currentColor" />}
-        </button>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -130,9 +109,8 @@ export default function Privasee() {
           </div>
         </div>
 
-        {/* Right — vraie vidéo démo produit (issue de la branche redesign-twenty) */}
         <div className="pz-reveal">
-          <DemoVideo />
+          <SitePreview name="Privasee" url={startup.url} image="/previews/privasee.jpg" />
         </div>
       </div>
 
@@ -174,14 +152,17 @@ export default function Privasee() {
             </div>
           </div>
 
-          <ul className="space-y-3">
-            {startupAksel.points.map((p) => (
-              <li key={p} className="flex items-start gap-3 text-white/75">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                <span className="leading-relaxed">{p}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="min-w-0 space-y-7">
+            <SitePreview name="Aksel AI" url={startupAksel.url} image="/previews/aksel-ai.jpg" />
+            <ul className="space-y-3">
+              {startupAksel.points.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-white/75">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span className="leading-relaxed">{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -138,16 +138,25 @@ export type PressItem = {
   outlet: string;
   title: string;
   date: string;
+  publishedAt: string;
   url: string;
   embeddable?: boolean;
 };
 
 export const press: PressItem[] = [
   {
+    outlet: "Perspectives Numériques 10",
+    title: "Privasee : mettre les données privées à l’abri avant que l’IA ne les voie",
+    date: "8 septembre 2026",
+    publishedAt: "2026-09-08",
+    url: "https://perspectives-numeriques.org/privasee-donnees-privees-ia/",
+  },
+  {
     outlet: "Le Parisien",
     title:
       "Quand EDF vient chercher des solutions à l'Université de Troyes pour ses centrales nucléaires",
     date: "29 juin 2026",
+    publishedAt: "2026-06-29",
     url: "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php",
     embeddable: true,
   },
@@ -494,14 +503,13 @@ export const jsonLd = {
         "https://privasee.fr",
         "https://akselai.fr",
       ],
-      subjectOf: {
-        "@type": "NewsArticle",
-        headline:
-          "Quand EDF vient chercher des solutions à l'Université de Troyes pour ses centrales nucléaires",
-        datePublished: "2026-06-29",
-        publisher: { "@type": "Organization", name: "Le Parisien" },
-        url: "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php",
-      },
+      subjectOf: press.map((article) => ({
+        "@type": "Article",
+        headline: article.title,
+        datePublished: article.publishedAt,
+        publisher: { "@type": "Organization", name: article.outlet },
+        url: article.url,
+      })),
       address: { "@type": "PostalAddress", addressLocality: "Troyes", addressCountry: "FR" },
     },
     {

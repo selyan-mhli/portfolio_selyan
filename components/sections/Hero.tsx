@@ -43,6 +43,9 @@ export default function Hero() {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Mouvement réduit : aucune timeline, le contenu reste visible tel quel.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const ctx = gsap.context(() => {
       // fromTo et non from : reactStrictMode monte le composant deux fois en dev.
       // Avec .from(), le second montage lit l'etat DEJA translate par le premier et
