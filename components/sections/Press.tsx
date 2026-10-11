@@ -55,7 +55,7 @@ export default function Press() {
                 {item.title}
               </p>
 
-              <p className="mt-3 text-white/40">{item.date}</p>
+              <p className="mt-3 text-white/55">{item.date}</p>
 
               <span className="mt-5 inline-block border-b border-white/25 pb-0.5 text-sm text-white/70 transition-colors group-hover:border-accent group-hover:text-accent">
                 Lire l&apos;article ↗

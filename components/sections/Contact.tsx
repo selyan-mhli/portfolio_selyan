@@ -37,7 +37,7 @@ function ContactForm() {
   }
 
   const inputCls =
-    "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm placeholder:text-white/30 focus:outline-none focus:border-accent/60 transition-colors";
+    "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm placeholder:text-white/50 focus:outline-none focus:border-accent/60 transition-colors";
 
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex flex-col gap-3">

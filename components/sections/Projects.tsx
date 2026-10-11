@@ -53,7 +53,7 @@ function Preview({ p }: { p: Project }) {
           le navigateur du visiteur fournit deja sa vraie chrome, la redessiner est
           un costume. Le domaine, lui, est une information — il dit ou mene le lien. */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-center border-b border-white/10 bg-black/50 px-4 py-2.5 backdrop-blur">
-        <span className="mono-label truncate !text-[10px] !text-white/40">
+        <span className="mono-label truncate !text-[10px]">
           {live ? new URL(live).host : p.github ? "github.com" : "aperçu"}
         </span>
       </div>
@@ -98,7 +98,7 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
       <div className={index % 2 === 1 ? "md:order-2" : ""}>
         <div className="flex flex-wrap items-center gap-3">
           <span className="mono-label">{String(index + 1).padStart(2, "0")}</span>
-          {p.year && <span className="mono-label !text-white/35">{p.year}</span>}
+          {p.year && <span className="mono-label">{p.year}</span>}
           {p.kind === "concours" && (
             <span className="mono-label rounded-full border border-white/15 px-2.5 py-0.5 text-[10px] !text-white/70">
               Concours
@@ -115,7 +115,7 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
 
         <p className="mt-4 max-w-xl leading-relaxed text-white/70">{p.problem}</p>
         {p.description && (
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/45">
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60">
             {p.description}
           </p>
         )}

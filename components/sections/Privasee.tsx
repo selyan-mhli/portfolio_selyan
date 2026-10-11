@@ -21,7 +21,7 @@ function SitePreview({ name, url, image }: { name: string; url: string; image: s
       {/* Legende de source, comme les apercus de Projects : le domaine dit ou mene
           le lien. Capture et non iframe : le site refuse d'etre encadre. */}
       <div className="flex items-center border-b border-white/10 bg-black/50 px-4 py-2.5">
-        <span className="mono-label truncate !text-[10px] !text-white/40">
+        <span className="mono-label truncate !text-[10px]">
           {new URL(url).host}
         </span>
         <ArrowUpRight size={15} className="ml-auto shrink-0 text-white/40 transition-colors group-hover:text-accent" />
