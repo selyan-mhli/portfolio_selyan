@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { projects, slugify } from "@/lib/data";
 
@@ -32,6 +32,9 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [subOpen, setSubOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const openRef = useRef(open);
+  openRef.current = open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -49,7 +52,13 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    // Echap : le menu devient inert, le focus qui y etait serait perdu (retour au
+    // <body>). On le rend au bouton qui a ouvert le menu.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || !openRef.current) return;
+      setOpen(false);
+      toggleRef.current?.focus({ preventScroll: true });
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -69,8 +78,10 @@ export default function Nav() {
           </a>
 
           <button
+            ref={toggleRef}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
+            aria-controls="site-menu"
             onClick={() => setOpen((v) => !v)}
             className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 backdrop-blur px-4 py-2 transition-colors"
           >
@@ -93,8 +104,11 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Drawer (full screen, desktop + mobile) */}
+      {/* Drawer (full screen, desktop + mobile). inert une fois ferme : sinon ses liens,
+          seulement transparents, restent atteignables au clavier et a la lecture d'ecran. */}
       <div
+        id="site-menu"
+        inert={!open}
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}

@@ -47,6 +47,14 @@ html, body {
   color: var(--accent-ink);
 }
 
+/* Focus clavier : anneau ambre sur tout le site, a la place du bleu par defaut du
+   navigateur. Instantane (jamais anime). Les champs gardent leur bordure ambre via
+   focus:outline-none, plus specifique. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* Ouverture de section — trois voix, pas une.
    .sec-label : la section s'annonce (ancres : startups, projets, contact).
    .sec-rule  : la section ouvre sur une marque, le titre porte seul (sections d'appui).
