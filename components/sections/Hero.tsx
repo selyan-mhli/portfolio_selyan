@@ -13,17 +13,27 @@ const badges = [
   { icon: Briefcase, label: "Dispo freelance : sites web & IA", href: "https://akselai.fr", external: true },
 ];
 
-function HeroPhoto() {
+// portrait : grand cadre desktop. banner : bandeau mobile/tablette, recadre et zoome
+// sur le buste (la photo est un plan large sur scene) pour laisser le nom et la phrase
+// d'accroche dans le premier ecran.
+function HeroPhoto({ variant = "portrait" }: { variant?: "portrait" | "banner" }) {
   const [ok, setOk] = useState(true);
+  const banner = variant === "banner";
   return (
-    <div className="hero-photo relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-surface">
+    <div
+      className={`hero-photo relative w-full overflow-hidden rounded-2xl border border-white/10 bg-surface ${
+        banner ? "aspect-[16/10] max-w-xl" : "aspect-[4/5]"
+      }`}
+    >
       {ok ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src="/selyan.jpg"
           alt="Selyan Mouhali"
           onError={() => setOk(false)}
-          className="h-full w-full object-cover grayscale-[0.15] contrast-[1.02]"
+          className={`h-full w-full object-cover grayscale-[0.15] contrast-[1.02] ${
+            banner ? "scale-[1.35] origin-[54%_18%] object-[54%_18%]" : ""
+          }`}
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center">
@@ -66,19 +76,14 @@ export default function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-[100svh] px-6 md:px-12 lg:px-20 pt-28 pb-16 flex items-center"
+      className="relative min-h-[100svh] px-6 md:px-12 lg:px-20 pt-24 md:pt-28 pb-16 flex items-center"
     >
       <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
         {/* Left — thesis */}
         <div>
-          {/* Avatar rond — mobile/tablette uniquement (le grand portrait s'affiche en desktop) */}
-          <div className="hero-avatar lg:hidden mx-auto mb-9 h-80 w-80 max-w-[84vw] max-h-[84vw] overflow-hidden rounded-full border border-white/15 bg-surface">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/selyan.jpg"
-              alt="Selyan Mouhali"
-              className="h-full w-full object-cover object-top"
-            />
+          {/* Bandeau photo — mobile/tablette uniquement (le grand portrait s'affiche en desktop) */}
+          <div className="mb-8 lg:hidden">
+            <HeroPhoto variant="banner" />
           </div>
 
           <div className="hero-eyebrow mono-label mb-6">
@@ -88,7 +93,7 @@ export default function Hero() {
           <h1 className="serif-display text-[clamp(2.75rem,8.5vw,7.5rem)]">
             <span className="block overflow-hidden">
               <span className="hero-line inline-block">Selyan</span>
-            </span>
+            </span>{" "}
             <span className="block overflow-hidden">
               <span className="hero-line inline-block">Mouhali</span>
             </span>
@@ -168,7 +173,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-scroll absolute bottom-8 left-6 md:left-12 lg:left-20 mono-label">
+      {/* Masque sous md : la barre Contact/CV fixe occupe deja le bas de l'ecran */}
+      <div className="hero-scroll absolute bottom-8 left-6 md:left-12 lg:left-20 mono-label hidden md:block">
         scroll ↓
       </div>
     </section>
