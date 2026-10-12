@@ -2,6 +2,25 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment, MeshDistortMaterial, Float } from "@react-three/drei";
+
+// Lu cote client uniquement. false au premier rendu des deux cotes : sans ca le
+// serveur et le client divergeraient sur les props de <Float> (ecart d'hydratation).
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return reduced;
+}
+
+// Dans une boucle rAF on est toujours cote client : lecture directe possible.
+const prefersReduced = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
@@ -41,6 +60,7 @@ function Blob({
 }) {
   const group = useRef<THREE.Group>(null);
   const mat = useRef<any>(null);
+  const reducedMotion = useReducedMotion();
 
   useFrame((_, dt) => {
     const g = group.current;
@@ -52,9 +72,11 @@ function Blob({
     g.position.x += (px - g.position.x) * k;
     g.position.y += (py - g.position.y) * k;
 
-    // rotation
-    g.rotation.x += dt * 0.15 + (target.current.rx - g.rotation.x) * 0.03;
-    g.rotation.y += dt * 0.12 + (target.current.ry - g.rotation.y) * 0.03;
+    // rotation — l'increment continu est la part qui tourne sans fin ; sous
+    // prefers-reduced-motion on ne garde que le rattrapage vers la cible.
+    const spin = prefersReduced() ? 0 : 1;
+    g.rotation.x += dt * 0.15 * spin + (target.current.rx - g.rotation.x) * 0.03;
+    g.rotation.y += dt * 0.12 * spin + (target.current.ry - g.rotation.y) * 0.03;
 
     // scale
     const s = target.current.scale;
@@ -70,7 +92,11 @@ function Blob({
   });
 
   return (
-    <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.6}>
+    <Float
+      speed={reducedMotion ? 0 : 1.2}
+      rotationIntensity={reducedMotion ? 0 : 0.3}
+      floatIntensity={reducedMotion ? 0 : 0.6}
+    >
       <group ref={group}>
         {/* Inner core — lime glow */}
         <mesh>

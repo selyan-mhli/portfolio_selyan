@@ -8,7 +8,10 @@ export default function CustomCursor() {
 
   useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    if (isTouch) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Un curseur suiveur est une boucle rAF permanente : inutile au tactile, penible
+    // sous prefers-reduced-motion.
+    if (isTouch || reduced) return;
 
     document.documentElement.classList.add("has-cursor");
     let x = 0, y = 0, rx = 0, ry = 0;

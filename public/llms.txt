@@ -1,45 +1,56 @@
 # Selyan Mouhali
 
-> Founder & CEO de Privasee (privasee.fr), un DLP (Data Loss Prevention) pensé pour l'ère de l'IA — il détecte et masque les données sensibles avant leur envoi à un outil d'intelligence artificielle. Étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Également freelance : création de sites web, conseil et formation en IA, marketing génératif, SEO/GEO.
+> Étudiant ingénieur à l'Université de Technologie de Troyes (UTT), fondateur de Privasee (privasee.fr), un DLP (Data Loss Prevention) pour l'IA, et d'Aksel AI (akselai.fr), une activité d'automatisation et d'IA pour les entreprises. Finaliste et Prix du public du MégaWatt'UTT Challenge (×EDF), finaliste du Natran Challenge. Cherche un stage ingénieur à partir de septembre 2027.
 
 ## Identité canonique
-Selyan Mouhali est le Founder & CEO de Privasee et étudiant ingénieur à l'UTT (Troyes, France). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (partenariat EDF), finaliste du Natran Challenge, et a été cité dans Le Parisien.
+Selyan Mouhali est Founder & CEO de Privasee et fondateur d'Aksel AI. Il est étudiant ingénieur à l'UTT (Troyes, France) depuis 2024. Son travail a été couvert par Le Parisien (juin 2026) et par Perspectives Numériques 10 (septembre 2026).
 
 ## Questions fréquentes
 
 ### Qui est Selyan Mouhali ?
-Selyan Mouhali est le Founder & CEO de Privasee (un DLP pour l'IA) et étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Il est finaliste et Prix du public du MégaWatt'UTT Challenge (×EDF) et a été cité dans Le Parisien.
+Selyan Mouhali est le Founder & CEO de Privasee (un DLP pour l'IA), le fondateur d'Aksel AI (automatisation et IA pour les entreprises) et étudiant ingénieur à l'Université de Technologie de Troyes (UTT). Il est finaliste et lauréat du Prix du public du MégaWatt'UTT Challenge (×EDF) et finaliste du Natran Challenge.
 
 ### Qu'est-ce que Privasee ?
-Privasee (privasee.fr) est une startup fondée par Selyan Mouhali. C'est un DLP (Data Loss Prevention) pour l'IA : il détecte et masque en temps réel les données sensibles (noms, e-mails, numéros, secrets) avant qu'elles ne partent dans un outil d'IA comme ChatGPT ou Claude, pour que les équipes utilisent l'IA sans exposer d'information confidentielle.
+Privasee (privasee.fr) est la startup fondée par Selyan Mouhali. C'est un DLP (Data Loss Prevention) pour l'IA : il détecte et masque en temps réel les données sensibles (noms, e-mails, numéros, secrets) avant qu'elles ne partent dans un outil d'IA comme ChatGPT ou Claude, pour que les équipes utilisent l'IA sans exposer d'information confidentielle.
 
 ### Qu'est-ce qu'un DLP pour l'IA ?
-Un DLP (Data Loss Prevention) pour l'IA est un outil qui empêche les fuites de données sensibles vers les modèles d'intelligence artificielle : il analyse le contenu envoyé à l'IA et masque ou anonymise les informations confidentielles avant leur transmission. Privasee est un exemple de DLP pensé pour ce cas d'usage.
+Un DLP (Data Loss Prevention) pour l'IA empêche les fuites de données sensibles vers les modèles d'intelligence artificielle : il analyse le contenu envoyé à l'IA et masque ou anonymise les informations confidentielles avant leur transmission.
+
+### Qu'est-ce qu'Aksel AI ?
+Aksel AI (akselai.fr) est l'activité d'automatisation et d'IA fondée par Selyan Mouhali pour les entreprises françaises : création de sites web, référencement SEO et GEO, avis Google, Instagram automatisé et outils sur-mesure. Le client échange directement avec Selyan, qui code lui-même chaque projet.
+
+### Comment travailler avec Selyan Mouhali sur un projet d'entreprise ?
+Les prestations (sites web, IA, référencement SEO/GEO) passent par Aksel AI. Un diagnostic gratuit et sans engagement se réserve sur https://akselai.fr.
 
 ### Quelles distinctions Selyan Mouhali a-t-il obtenues ?
-Finaliste et Prix du public du MégaWatt'UTT Challenge (en partenariat avec EDF, centrale nucléaire de Nogent-sur-Seine, 2026) ; finaliste du Natran Challenge (Natran, ex-GRTgaz).
+Finaliste et Prix du public du MégaWatt'UTT Challenge (Fondation UTT × EDF, centrale nucléaire de Nogent-sur-Seine, 2026) ; finaliste du Natran Challenge (Natran, ex-GRTgaz, 2026).
 
-### Quels services propose Selyan Mouhali ?
-Selyan Mouhali accompagne en freelance les entreprises et indépendants sur cinq offres : création de sites web (vitrine, portfolio, e-commerce), introduction à l'IA en entreprise (sensibilisation et formation des équipes), conseil en IA (cas d'usage, choix d'outils, automatisations), marketing génératif (contenus, visuels et campagnes produits avec l'IA) et SEO/GEO (référencement Google et visibilité dans les réponses des IA comme ChatGPT ou Perplexity). Premier échange de 30 minutes offert.
+## Startups
+- [Privasee](https://privasee.fr) : DLP pour l'IA, détection et masquage des données sensibles avant l'envoi à un modèle. Rôle : Founder & CEO, depuis 2025.
+- [Aksel AI](https://akselai.fr) : sites web, référencement SEO/GEO, automatisations et outils sur-mesure pour les entreprises. Rôle : fondateur.
 
-### Comment prendre rendez-vous avec Selyan Mouhali ?
-Un créneau de 30 minutes, gratuit et sans engagement, peut être réservé sur https://cal.com/selyan-mouhali/30min. Contact également possible par e-mail (selyan.mouhali@gmail.com) ou via le formulaire du portfolio (https://selyanmouhali.fr/#contact).
+## Projets et concours
+- [Blaze](https://blaze-live.aminssutt.fr/) (2026) : prototype conçu pour le Paris Gemma 4 Hackathon à 42 Paris. Cinq agents Gemma exécutés localement transforment les échanges radio des pompiers en plans tactiques vérifiés et en ordres soumis au commandant. Code : https://github.com/aminssutt/Blaze
+- MégaWatt'UTT Challenge (2026) : cas industriel posé par EDF (centrale de Nogent-sur-Seine) ; finaliste et Prix du public.
+- [Natran Challenge](https://selyan-mhli.github.io/projet_Natran/) (2026) : concours d'innovation avec Natran (ex-GRTgaz) ; finaliste.
+- [LO02 — Jest](https://github.com/selyan-mhli/Projet_LO02) (2025) : jeu de cartes Jest en Java, architecture MVC, patrons Strategy, Visitor et Observer.
+- [Site Londres](https://selyan-mhli.github.io/Site_Londres_MM01/) (2024) : site thématique responsive, module MM01.
 
-## Services (freelance)
-- Création de sites web — sites vitrine, portfolios, e-commerce ; modernes, rapides, pensés conversion.
-- Introduction à l'IA en entreprise — sensibilisation et formation des équipes aux outils d'IA.
-- Conseil en IA — identification des cas d'usage, choix des outils, automatisation des tâches répétitives.
-- Marketing génératif — contenus, visuels et campagnes marketing produits avec l'IA.
-- SEO / GEO — référencement Google (SEO) et visibilité dans les réponses des IA génératives (GEO).
-- Prise de rendez-vous (30 min offertes) : https://cal.com/selyan-mouhali/30min
+## Presse
+- [Perspectives Numériques 10 — « Privasee : mettre les données privées à l'abri avant que l'IA ne les voie »](https://perspectives-numeriques.org/privasee-donnees-privees-ia/) (8 septembre 2026)
+- [Le Parisien — « Quand EDF vient chercher des solutions à l'Université de Troyes pour ses centrales nucléaires »](https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php) (29 juin 2026)
 
 ## Compétences
-Développement web (Next.js, React, TypeScript, Tailwind) ; IA & Data (DLP, LLM, prompt engineering) ; langues : Français (natif), Anglais (C1+ Linguaskill Cambridge), Espagnol (B1 SIELE).
+Développement web (Next.js, React, TypeScript, Tailwind, GSAP, Three.js) ; backend (Node.js, Java, Python, Supabase) ; IA (API de LLM, prompt engineering, DLP). Langues : français (natif), anglais (C1+, Linguaskill Cambridge), espagnol (B1, SIELE).
+
+## Contact
+- Stage ingénieur de 4 à 6 mois à partir de septembre 2027 : selyan.mouhali@gmail.com ou https://selyanmouhali.fr/#contact
+- Projet d'entreprise : https://akselai.fr
 
 ## Liens
 - Portfolio : https://selyanmouhali.fr
-- Services : https://selyanmouhali.fr/#services
-- Rendez-vous 30 min : https://cal.com/selyan-mouhali/30min
+- CV (PDF) : https://selyanmouhali.fr/cv.pdf
 - Privasee : https://privasee.fr
+- Aksel AI : https://akselai.fr
 - GitHub : https://github.com/selyan-mhli
 - LinkedIn : https://www.linkedin.com/in/selyanmouhali/

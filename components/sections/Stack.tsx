@@ -31,7 +31,7 @@ function Bubble({ t }: { t: Tech }) {
       className="group relative shrink-0 flex flex-col items-center gap-3 mx-6 md:mx-10"
     >
       <div
-        className="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center border border-white/15 bg-white/[0.04] backdrop-blur transition-all duration-500 group-hover:scale-110 group-hover:border-white/40 group-hover:rotate-6"
+        className="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center border border-white/15 bg-white/[0.04] backdrop-blur transition-[border-color,background-color] duration-300 group-hover:border-accent/60 group-hover:bg-white/[0.07]"
         style={{
           boxShadow: `inset 0 0 30px rgba(255,255,255,0.04), 0 10px 40px -20px #${t.color}`,
         }}
@@ -73,7 +73,7 @@ export default function Stack() {
   return (
     <section id="stack" className="relative py-32 overflow-hidden">
       <div className="px-6 md:px-12 lg:px-20">
-        <div className="mono-label mb-6">04 / Stack &amp; Compétences</div>
+        <div className="sec-rule mb-6" aria-hidden="true" />
         <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">
           Les outils que je maîtrise.
         </h2>

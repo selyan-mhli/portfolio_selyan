@@ -5,6 +5,8 @@ import Lenis from "@studio-freight/lenis";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Le scroll lisse est du mouvement impose : on le coupe sous prefers-reduced-motion.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     let rafId = 0;
     const raf = (time: number) => {

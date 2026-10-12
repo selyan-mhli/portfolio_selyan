@@ -37,7 +37,7 @@ function ContactForm() {
   }
 
   const inputCls =
-    "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm placeholder:text-white/30 focus:outline-none focus:border-accent/60 transition-colors";
+    "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm placeholder:text-white/50 focus:outline-none focus:border-accent/60 transition-colors";
 
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex flex-col gap-3">
@@ -47,9 +47,9 @@ function ContactForm() {
         <input required name="name" placeholder="Votre nom" autoComplete="name" className={inputCls} />
         <input required type="email" name="email" placeholder="Votre e-mail" autoComplete="email" className={inputCls} />
       </div>
-      <select required name="subject" defaultValue="Projet / Services" className={inputCls}>
-        <option>Projet / Services</option>
+      <select required name="subject" defaultValue="Stage / Recrutement" className={inputCls}>
         <option>Stage / Recrutement</option>
+        <option>Projet</option>
         <option>Autre</option>
       </select>
       <textarea required name="message" placeholder="Votre message…" rows={5} className={`${inputCls} resize-y`} />
@@ -76,7 +76,7 @@ function ContactForm() {
 export default function Contact() {
   return (
     <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">10 / Contact</div>
+      <div className="sec-label mb-6">Contact</div>
       <h2 className="serif-display text-[clamp(2.5rem,8vw,7rem)] mb-10">
         On construit ensemble ?
       </h2>

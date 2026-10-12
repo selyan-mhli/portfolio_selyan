@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { projects, slugify } from "@/lib/data";
 
 type NavLink = {
   href: string;
   label: string;
+  external?: boolean;
   children?: { href: string; label: string }[];
 };
 
@@ -22,7 +23,8 @@ const links: NavLink[] = [
   },
   { href: "#presse", label: "Presse" },
   { href: "#experience", label: "Parcours" },
-  { href: "#services", label: "Services" },
+  // Les offres entreprises vivent sur akselai.fr : pas de section Services ici.
+  { href: "https://akselai.fr", label: "Aksel AI", external: true },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -30,6 +32,9 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [subOpen, setSubOpen] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const openRef = useRef(open);
+  openRef.current = open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -47,7 +52,13 @@ export default function Nav() {
   }, [open]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    // Echap : le menu devient inert, le focus qui y etait serait perdu (retour au
+    // <body>). On le rend au bouton qui a ouvert le menu.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape" || !openRef.current) return;
+      setOpen(false);
+      toggleRef.current?.focus({ preventScroll: true });
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -55,7 +66,7 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
           scrolled
             ? "bg-black/55 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
@@ -67,8 +78,10 @@ export default function Nav() {
           </a>
 
           <button
+            ref={toggleRef}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={open}
+            aria-controls="site-menu"
             onClick={() => setOpen((v) => !v)}
             className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 backdrop-blur px-4 py-2 transition-colors"
           >
@@ -77,12 +90,12 @@ export default function Nav() {
             </span>
             <span className="relative w-4 h-4">
               <Menu
-                className={`absolute inset-0 w-4 h-4 transition-all duration-200 ${
+                className={`absolute inset-0 w-4 h-4 transition-[opacity,transform] duration-200 ${
                   open ? "opacity-0 rotate-45 scale-50" : "opacity-100"
                 }`}
               />
               <X
-                className={`absolute inset-0 w-4 h-4 transition-all duration-200 ${
+                className={`absolute inset-0 w-4 h-4 transition-[opacity,transform] duration-200 ${
                   open ? "opacity-100" : "opacity-0 -rotate-45 scale-50"
                 }`}
               />
@@ -91,8 +104,11 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Drawer (full screen, desktop + mobile) */}
+      {/* Drawer (full screen, desktop + mobile). inert une fois ferme : sinon ses liens,
+          seulement transparents, restent atteignables au clavier et a la lecture d'ecran. */}
       <div
+        id="site-menu"
+        inert={!open}
         className={`fixed inset-0 z-40 transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
@@ -122,9 +138,13 @@ export default function Nav() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="serif-display text-4xl md:text-7xl text-white/85 hover:text-accent transition-colors text-center"
+                    {...(l.external && { target: "_blank", rel: "noopener noreferrer" })}
+                    className="serif-display inline-flex items-start gap-2 text-4xl md:text-7xl text-white/85 hover:text-accent transition-colors text-center"
                   >
                     {l.label}
+                    {l.external && (
+                      <ArrowUpRight className="mt-1 h-6 w-6 shrink-0 text-white/40 md:mt-3 md:h-10 md:w-10" aria-hidden="true" />
+                    )}
                   </a>
                   {l.children && (
                     <button
@@ -152,7 +172,7 @@ export default function Nav() {
 
                 {l.children && (
                   <div
-                    className={`grid transition-all duration-400 ease-out ${
+                    className={`grid transition-[grid-template-rows,opacity] duration-400 ease-out ${
                       expanded ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
                     }`}
                   >

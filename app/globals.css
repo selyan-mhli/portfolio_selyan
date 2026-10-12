@@ -1,3 +1,16 @@
+/* Hallmark · redesign · 2026-09-08
+ * macrostructure: Long Document (rythme retravaille, structure preservee)
+ * tone: technique et assume · anchor hue: ambre #f7a233
+ * section-heads: 3 voix — label ancre (4) / regle 40px (6) / terminal (1).
+ *   Remplace 10 eyebrows numerotees 01..10 : un portfolio n'est pas une sequence.
+ * theme: systeme existant du projet, PRESERVE (pas de re-pick)
+ *   paper #0a0a0b · sand #ecebe6 · accent #f7a233
+ *   Bricolage Grotesque + Inter + JetBrains Mono
+ * services: section retiree (2026-10-11) — les offres vivent sur akselai.fr
+ * passions: karate en tete, le reste en liste a filets (plus de grille de cartes)
+ * motion: prefers-reduced-motion garde sur Lenis, curseur suiveur, rotation R3F
+ * enrichment: none — la photo hero et la video demo etaient deja la
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,12 +39,59 @@ html, body {
   background: var(--ink);
   color: var(--sand);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip, pas hidden : hidden cree un conteneur de defilement qui casse position:sticky chez les descendants */
 }
 
 ::selection {
   background: var(--accent);
   color: var(--accent-ink);
+}
+
+/* Focus clavier : anneau ambre sur tout le site, a la place du bleu par defaut du
+   navigateur. Instantane (jamais anime). Les champs gardent leur bordure ambre via
+   focus:outline-none, plus specifique. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Ouverture de section — trois voix, pas une.
+   .sec-label : la section s'annonce (ancres : startups, projets, contact).
+   .sec-rule  : la section ouvre sur une marque, le titre porte seul (sections d'appui).
+   La numerotation 01..10 a ete retiree : les sections d'un portfolio ne sont pas
+   une sequence, donc le numero n'encodait rien de vrai. */
+.sec-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sec-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.85;
+}
+
+/* Mouvement : le site empile Lenis, GSAP, framer-motion, une scene three.js en
+   rotation et un curseur suiveur. Sans cette garde, ce cumul est intenable pour
+   les personnes sensibles au mouvement vestibulaire. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    /* Couleurs seulement. Une duree globale seule activerait "transition: all"
+       (opacite comprise) sur chaque element : GSAP lirait alors une opacite en
+       cours de transition (~0) comme valeur finale de ses .from(), et le contenu
+       resterait invisible. */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+    transition-duration: 120ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
 }
 
 /* Monospace utility label — the technical "engineer" voice */
@@ -72,13 +132,4 @@ html, body {
 
 .exp-dot {
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.7), 0 0 24px rgb(var(--accent-rgb) / 0.4);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }

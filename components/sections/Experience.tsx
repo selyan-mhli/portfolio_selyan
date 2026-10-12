@@ -64,7 +64,7 @@ export default function Experience() {
 
   return (
     <section id="experience" ref={ref} className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="exp-kicker mono-label mb-6">05 / Parcours</div>
+      <div className="exp-kicker sec-rule mb-6" aria-hidden="true" />
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-4">Parcours.</h2>
       <p className="max-w-xl text-white/55 mb-14">
         L'essentiel — le reste en bas, pour le contexte.
@@ -83,10 +83,10 @@ export default function Experience() {
               </div>
               <div>
                 <h3 className="font-medium text-lg leading-tight">{e.role}</h3>
-                <span className="text-white/45 text-sm">{e.company}</span>
+                <span className="text-white/60 text-sm">{e.company}</span>
               </div>
             </div>
-            <div className="mono-label mb-3 !text-white/40">{e.period}</div>
+            <div className="mono-label mb-3">{e.period}</div>
             <ul className="list-inside list-disc space-y-1 text-sm text-white/70">
               {e.bullets.map((b, j) => (
                 <li key={j}>{b}</li>
@@ -100,7 +100,7 @@ export default function Experience() {
       {rest.length > 0 && (
         <div className="exp-rest mt-14">
           <div className="mb-5 flex items-center gap-4">
-            <span className="mono-label !text-white/40">Autres expériences</span>
+            <span className="mono-label">Autres expériences</span>
             <span className="h-px flex-1 bg-white/10" />
           </div>
           <ul className="divide-y divide-white/8">
@@ -110,8 +110,8 @@ export default function Experience() {
                 className="exp-mini flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3.5"
               >
                 <span className="font-medium text-white/85">{e.role}</span>
-                <span className="text-white/40">· {e.company}</span>
-                <span className="mono-label ml-auto !text-white/35">{e.period}</span>
+                <span className="text-white/55">· {e.company}</span>
+                <span className="mono-label ml-auto">{e.period}</span>
               </li>
             ))}
           </ul>

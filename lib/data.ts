@@ -138,16 +138,25 @@ export type PressItem = {
   outlet: string;
   title: string;
   date: string;
+  publishedAt: string;
   url: string;
   embeddable?: boolean;
 };
 
 export const press: PressItem[] = [
   {
+    outlet: "Perspectives Numériques 10",
+    title: "Privasee : mettre les données privées à l’abri avant que l’IA ne les voie",
+    date: "8 septembre 2026",
+    publishedAt: "2026-09-08",
+    url: "https://perspectives-numeriques.org/privasee-donnees-privees-ia/",
+  },
+  {
     outlet: "Le Parisien",
     title:
       "Quand EDF vient chercher des solutions à l'Université de Troyes pour ses centrales nucléaires",
     date: "29 juin 2026",
+    publishedAt: "2026-06-29",
     url: "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php",
     embeddable: true,
   },
@@ -358,49 +367,9 @@ export const contact = {
   github: "https://github.com/selyan-mhli",
   linkedin: "https://www.linkedin.com/in/selyanmouhali/",
   privasee: "https://privasee.fr",
-  // Cal.com : chemin public de l'événement (cal.com/<username>/<event>)
-  calLink: "selyan-mouhali/30min",
   // Web3Forms : clé d'accès publique (web3forms.com — reçue par e-mail)
   web3formsKey: "e3a85b59-2611-4bbf-ba43-bce0234b8378",
 };
-
-/* ------------------------------------------------------------------ */
-/* Services — offre freelance (sites, IA, SEO/GEO)                     */
-/* ------------------------------------------------------------------ */
-
-export type Service = {
-  title: string;
-  desc: string;
-  icon: "globe" | "graduation" | "compass" | "megaphone" | "search";
-};
-
-export const services: Service[] = [
-  {
-    title: "Création de sites web",
-    desc: "Sites vitrine, portfolios et e-commerce. Modernes, rapides, pensés pour convertir vos visiteurs en clients.",
-    icon: "globe",
-  },
-  {
-    title: "Introduction à l'IA en entreprise",
-    desc: "Sensibilisation et formation de vos équipes aux outils d'IA : ce qui existe, ce qui vous concerne, comment démarrer sans risque.",
-    icon: "graduation",
-  },
-  {
-    title: "Conseil en IA",
-    desc: "J'identifie vos cas d'usage concrets, je choisis les bons outils et j'automatise vos tâches répétitives. Sans jargon.",
-    icon: "compass",
-  },
-  {
-    title: "Marketing génératif",
-    desc: "Contenus, visuels et campagnes marketing produits avec l'IA : plus de volume, plus vite, dans votre ton de marque.",
-    icon: "megaphone",
-  },
-  {
-    title: "SEO / GEO",
-    desc: "Référencement Google (SEO) et visibilité dans les réponses des IA comme ChatGPT ou Perplexity (GEO). Être trouvé partout où l'on vous cherche.",
-    icon: "search",
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /* FAQ — visible + FAQPage schema (levier GEO : les IA citent ces blocs) */
@@ -477,31 +446,19 @@ export const jsonLd = {
         "Finaliste & Prix du public — MégaWatt'UTT Challenge (×EDF)",
         "Finaliste — Natran Challenge",
       ],
-      makesOffer: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.title,
-          description: s.desc,
-          provider: { "@id": `${SITE}/#selyan` },
-          areaServed: "France",
-          availableLanguage: ["fr", "en"],
-        },
-      })),
       sameAs: [
         "https://github.com/selyan-mhli",
         "https://www.linkedin.com/in/selyanmouhali/",
         "https://privasee.fr",
         "https://akselai.fr",
       ],
-      subjectOf: {
-        "@type": "NewsArticle",
-        headline:
-          "Quand EDF vient chercher des solutions à l'Université de Troyes pour ses centrales nucléaires",
-        datePublished: "2026-06-29",
-        publisher: { "@type": "Organization", name: "Le Parisien" },
-        url: "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php",
-      },
+      subjectOf: press.map((article) => ({
+        "@type": "Article",
+        headline: article.title,
+        datePublished: article.publishedAt,
+        publisher: { "@type": "Organization", name: article.outlet },
+        url: article.url,
+      })),
       address: { "@type": "PostalAddress", addressLocality: "Troyes", addressCountry: "FR" },
     },
     {
@@ -553,8 +510,7 @@ export const jsonLd = {
         { "@type": "ListItem", position: 2, name: "Startups", item: `${SITE}/#startups` },
         { "@type": "ListItem", position: 3, name: "Projets", item: `${SITE}/#projects` },
         { "@type": "ListItem", position: 4, name: "Presse", item: `${SITE}/#presse` },
-        { "@type": "ListItem", position: 5, name: "Services", item: `${SITE}/#services` },
-        { "@type": "ListItem", position: 6, name: "Contact", item: `${SITE}/#contact` },
+        { "@type": "ListItem", position: 5, name: "Contact", item: `${SITE}/#contact` },
       ],
     },
     {

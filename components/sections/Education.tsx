@@ -105,7 +105,7 @@ export default function Education() {
 
   return (
     <section id="education" ref={ref} className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="edu-kicker mono-label mb-6">06 / Formation</div>
+      <div className="edu-kicker sec-rule mb-6" aria-hidden="true" />
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">Formation.</h2>
       <div className="relative max-w-5xl pl-6 md:pl-10">
         <div className="edu-line absolute left-0 top-2 bottom-3 w-px origin-top bg-gradient-to-b from-accent via-white/25 to-transparent" />

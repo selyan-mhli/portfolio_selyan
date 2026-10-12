@@ -49,12 +49,11 @@ function Preview({ p }: { p: Project }) {
 
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-surface">
-      {/* Browser chrome */}
-      <div className="absolute inset-x-0 top-0 z-10 flex items-center gap-1.5 border-b border-white/10 bg-black/50 px-4 py-2.5 backdrop-blur">
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="mono-label ml-3 truncate !text-[10px] !text-white/40">
+      {/* Legende de source. Les trois pastilles de navigateur ont ete retirees :
+          le navigateur du visiteur fournit deja sa vraie chrome, la redessiner est
+          un costume. Le domaine, lui, est une information — il dit ou mene le lien. */}
+      <div className="absolute inset-x-0 top-0 z-10 flex items-center border-b border-white/10 bg-black/50 px-4 py-2.5 backdrop-blur">
+        <span className="mono-label truncate !text-[10px]">
           {live ? new URL(live).host : p.github ? "github.com" : "aperçu"}
         </span>
       </div>
@@ -99,7 +98,7 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
       <div className={index % 2 === 1 ? "md:order-2" : ""}>
         <div className="flex flex-wrap items-center gap-3">
           <span className="mono-label">{String(index + 1).padStart(2, "0")}</span>
-          {p.year && <span className="mono-label !text-white/35">{p.year}</span>}
+          {p.year && <span className="mono-label">{p.year}</span>}
           {p.kind === "concours" && (
             <span className="mono-label rounded-full border border-white/15 px-2.5 py-0.5 text-[10px] !text-white/70">
               Concours
@@ -116,7 +115,7 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
 
         <p className="mt-4 max-w-xl leading-relaxed text-white/70">{p.problem}</p>
         {p.description && (
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/45">
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/60">
             {p.description}
           </p>
         )}
@@ -188,7 +187,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="relative py-28 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="mono-label mb-6">02 / Projets &amp; concours</div>
+      <div className="sec-label mb-6">Projets &amp; concours</div>
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-4">Ce que je construis.</h2>
       <p className="max-w-xl text-white/55 mb-4">
         Des concours industriels primés aux projets de développement : du concret,

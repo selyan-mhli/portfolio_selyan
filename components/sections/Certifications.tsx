@@ -49,7 +49,7 @@ export default function Certifications() {
 
   return (
     <section id="certifications" ref={ref} className="relative py-32 px-6 md:px-12 lg:px-20">
-      <div className="cert-kicker mono-label mb-6">07 / Certifications</div>
+      <div className="cert-kicker sec-rule mb-6" aria-hidden="true" />
       <h2 className="serif-display text-[clamp(2rem,6vw,5rem)] mb-16">Certifications.</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {certifications.map((c, i) => {
@@ -67,16 +67,20 @@ export default function Certifications() {
             >
               {c.logo && (
                 <div className="relative w-10 h-10">
-                  <Image src={c.logo} alt={c.title} fill className="object-contain" />
+                  {/* alt vide : le titre est ecrit juste dessous, le logo est decoratif */}
+                  <Image src={c.logo} alt="" fill className="object-contain" />
                 </div>
               )}
               <div>
                 <div className="text-sm text-white/90">{c.title}</div>
                 {c.detail && <div className="mono-label mt-1 !text-[10px]">{c.detail}</div>}
               </div>
+              {/* Toujours visible : un indice au seul survol n'existe ni au tactile ni au
+                  clavier. « certificat » et non « PDF » : Linguaskill est une image. */}
               {c.pdf && (
-                <span className="mono-label !text-[9px] !text-accent opacity-0 transition-opacity group-hover:opacity-100">
-                  Voir le PDF ↗
+                <span className="mono-label mt-auto whitespace-nowrap !text-accent underline-offset-4 group-hover:underline">
+                  Voir<span className="sr-only"> le certificat, nouvel onglet</span>{" "}
+                  <span aria-hidden="true">↗</span>
                 </span>
               )}
             </Tag>
