@@ -104,6 +104,11 @@ function ProjectRow({ p, index }: { p: Project; index: number }) {
               Concours
             </span>
           )}
+          {p.event && (
+            <span className="inline-flex items-center rounded-full border border-white/15 px-2.5 py-0.5 text-[11px] text-white/75">
+              {p.event}
+            </span>
+          )}
           {p.award && (
             <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 text-[11px] font-medium text-accent">
               ★ {p.award}
