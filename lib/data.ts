@@ -61,7 +61,10 @@ export type Project = {
   featured?: boolean;
   description?: string;
   kind?: "concours" | "projet";
+  /** Distinction obtenue (prix, finale). Affichee avec une etoile. */
   award?: string;
+  /** Cadre du projet (hackathon, cours) sans distinction : badge neutre. */
+  event?: string;
 };
 
 export const projects: Project[] = [
@@ -70,7 +73,7 @@ export const projects: Project[] = [
     year: "2026",
     featured: true,
     kind: "concours",
-    award: "Paris Gemma 4 Hackathon",
+    event: "Paris Gemma 4 Hackathon",
     problem:
       "Transformer les échanges radio des pompiers en informations structurées, en plans tactiques vérifiés et en ordres soumis à la validation du commandant.",
     description:
