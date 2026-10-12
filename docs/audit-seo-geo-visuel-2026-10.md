@@ -185,3 +185,10 @@ Les points 1 à 6 sont rapides et indépendants ; les points 9 et 10 demandent d
     - la politique s'applique aussi au sous-domaine `vh.selyanmouhali.fr`.
   - **Mesure** (user-agents simulés) : GPTBot, ClaudeBot, Claude-User, CCBot, Amazonbot, OAI-SearchBot, Claude-SearchBot, PerplexityBot et Googlebot répondent 200 ; Bytespider répond 403. Le `robots.txt` servi correspond.
 - 12/10/2026 — point « lien fondateur sur privasee.fr » abandonné : décision de Selyan, pas de lien de Privasee vers le portfolio.
+- 12/10/2026 — **priorité 5 (www, HSTS, x-powered-by)** réglée (PR #9, déployée le 12/10 vers 11h54) :
+  - `www.selyanmouhali.fr` redirige en 308 vers `https://selyanmouhali.fr`, chemin et query conservés (redirection `next.config.mjs`) ;
+  - `Strict-Transport-Security: max-age=31536000`, sans `includeSubDomains` ni `preload` ;
+  - en-tête `x-powered-by` retiré ;
+  - mesuré en production : `www` → 308, `www/cv.pdf` → 308 vers `/cv.pdf`, apex → 200 avec HSTS et sans `x-powered-by` ; sitemap, `llms.txt`, `robots.txt` et aperçus en 200 ;
+  - `http://www` passe par deux redirections (Cloudflare vers HTTPS, puis le site vers l'apex) : fonctionnel, non optimisé.
+- Reste ouvert : priorité 10 (pages projet dédiées), qui attend du contenu de Selyan.
