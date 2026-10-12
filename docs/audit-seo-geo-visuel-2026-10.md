@@ -168,3 +168,20 @@ Les points 1 à 6 sont rapides et indépendants ; les points 9 et 10 demandent d
     - Vérifié sous Playwright (375 et 1440 px, mouvement réduit et normal) : tous les éléments du hero sont opaques. Après défilement complet, le seul texte encore invisible est le menu fermé et l'indice « Voir le PDF » des certifications, qui n'apparaît qu'au survol (point mineur).
   - **3** : `public/llms.txt` réécrit. Plus de Cal.com ; Aksel AI, les deux articles de presse et le stage de septembre 2027 sont ajoutés.
   - **5** : `app/sitemap.ts` ne contient plus qu'une URL, avec une date de dernière modification fixe.
+- 11/10/2026 — passe visuelle (PR #6, fusionnée et déployée le 12/10) :
+  - section Services retirée, renvoi vers akselai.fr ;
+  - hero mobile en bandeau ;
+  - barre Contact/CV masquée dans le hero et dans Contact ;
+  - Passions en liste ;
+  - contrastes : 0 texte sous 4,5:1 en production ;
+  - focus clavier ambre et menu fermé `inert` ;
+  - lien « Voir » des certificats toujours visible.
+- 12/10/2026 — **priorité 2 (robots IA)** réglée :
+  - **Décision** : autoriser les robots d'entraînement (portfolio public), sauf Bytespider.
+  - **Dans le dépôt** (PR #7) : `app/robots.ts` aligné ; ajout de CCBot, Claude-SearchBot et Claude-User ; Bytespider en `Disallow` ; directive `Host:` retirée.
+  - **Dans Cloudflare** (zone selyanmouhali.fr) :
+    - la politique globale « Configure AI bot policies » ne bloque plus (modifiée par Selyan) ;
+    - dans AI Crawl Control, seul Bytespider est bloqué ;
+    - la politique s'applique aussi au sous-domaine `vh.selyanmouhali.fr`.
+  - **Mesure** (user-agents simulés) : GPTBot, ClaudeBot, Claude-User, CCBot, Amazonbot, OAI-SearchBot, Claude-SearchBot, PerplexityBot et Googlebot répondent 200 ; Bytespider répond 403. Le `robots.txt` servi correspond.
+- 12/10/2026 — point « lien fondateur sur privasee.fr » abandonné : décision de Selyan, pas de lien de Privasee vers le portfolio.
