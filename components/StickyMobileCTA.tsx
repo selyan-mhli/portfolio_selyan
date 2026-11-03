@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mail, FileText } from "lucide-react";
+import { Mail } from "lucide-react";
+import CVMenu from "@/components/CVMenu";
 
 // Barre mobile Contact/CV. Masquee dans le hero (il porte deja ses propres CTA) et
 // dans la section Contact (le bouton y renverrait a la section courante et la barre
@@ -61,14 +62,10 @@ export default function StickyMobileCTA() {
         >
           <Mail size={16} /> Contact
         </a>
-        <a
-          href="/cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-full border border-white/15 bg-black/60 backdrop-blur px-5 py-3 text-sm"
-        >
-          <FileText size={16} /> CV
-        </a>
+        <CVMenu
+          placement="up"
+          buttonClassName="flex items-center justify-center gap-2 rounded-full border border-sand/15 bg-ink/80 backdrop-blur px-5 py-3 text-sm"
+        />
       </div>
     </div>
   );

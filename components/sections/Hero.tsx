@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import { ArrowUpRight, ArrowDown, FileText, Newspaper, Trophy, Briefcase } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Newspaper, Trophy, Briefcase } from "lucide-react";
+import CVMenu from "@/components/CVMenu";
 
 const LEPARISIEN_URL =
   "https://www.leparisien.fr/aube-10/quand-edf-vient-chercher-des-solutions-a-luniversite-de-troyes-pour-ses-centrales-nucleaires-29-06-2026-OTXINB5PMNC4ZC7SSQ7G66Q2MU.php";
@@ -156,14 +157,10 @@ export default function Hero() {
             >
               Mes projets
             </a>
-            <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-cta inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 transition-colors hover:border-accent hover:text-accent"
-            >
-              <FileText size={16} /> CV
-            </a>
+            <CVMenu
+              className="hero-cta"
+              buttonClassName="inline-flex items-center gap-2 rounded-full border border-sand/20 px-6 py-3 transition-colors hover:border-accent hover:text-accent"
+            />
           </div>
         </div>
 

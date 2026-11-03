@@ -49,7 +49,9 @@ Développement web (Next.js, React, TypeScript, Tailwind, GSAP, Three.js) ; back
 
 ## Liens
 - Portfolio : https://selyanmouhali.fr
-- CV (PDF) : https://selyanmouhali.fr/cv.pdf
+- Les deux CV côte à côte : https://selyanmouhali.fr/cv
+- CV Corporate (PDF) : https://selyanmouhali.fr/cv/corporate
+- CV Research (PDF) : https://selyanmouhali.fr/cv/research
 - Privasee : https://privasee.fr
 - Aksel AI : https://akselai.fr
 - GitHub : https://github.com/selyan-mhli

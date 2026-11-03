@@ -4,7 +4,6 @@ import "@fontsource-variable/inter/wght.css";
 import "@fontsource-variable/jetbrains-mono/wght.css";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { jsonLd } from "@/lib/data";
 
 const SITE = "https://selyanmouhali.fr";
@@ -80,7 +79,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased">
         <LenisProvider>
           {children}
-          <StickyMobileCTA />
         </LenisProvider>
       </body>
     </html>
