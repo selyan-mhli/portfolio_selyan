@@ -10,6 +10,7 @@ import Certifications from "@/components/sections/Certifications";
 import Passions from "@/components/sections/Passions";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 export default function Page() {
   return (
@@ -26,6 +27,7 @@ export default function Page() {
       <Passions />
       <Contact />
       <Footer />
+      <StickyMobileCTA />
     </main>
   );
 }

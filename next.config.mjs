@@ -17,6 +17,13 @@ const nextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  // Servir les PDF directement en conservant les adresses courtes partageables.
+  async rewrites() {
+    return [
+      { source: "/cv/corporate", destination: "/cv.pdf" },
+      { source: "/cv/research", destination: "/cv/research.pdf" },
+    ];
+  },
   // www et apex servaient le meme contenu en 200 : une seule URL canonique.
   async redirects() {
     return [
